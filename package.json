@@ -18,8 +18,8 @@
   "scripts": {
     "backend": "cd backend && npm start",
     "frontend": "cd frontend && npm start",
-    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "repository": {
     "type": "git",
