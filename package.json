@@ -1,0 +1,35 @@
+{
+  "name": "kawaiimart",
+  "version": "1.0.0",
+  "description": "SJSU grocery website",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "classnames": "^2.2.6",
+    "concurrently": "^4.1.0",
+    "jwt-decode": "^2.2.0",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^5.0.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "backend": "cd backend && npm start",
+    "frontend": "cd frontend && npm start",
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kawaiimart/kawaiimart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kawaiimart/kawaiimart/issues"
+  },
+  "homepage": "https://github.com/kawaiimart/kawaiimart#readme"
+}
