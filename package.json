@@ -17,6 +17,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "build": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "cd backend && npm start",
     "frontend": "cd frontend && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
