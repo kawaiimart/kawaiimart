@@ -18,20 +18,13 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "jwt-decode": "^2.2.0",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "react-redux": "^6.0.1",
-    "react-scripts": "^2.1.8",
-    "react-router-dom": "^5.0.0",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
     "bootstrap": "^4.3.1"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "cd frontend && npm start",
+    "start": "nodemon app.js",
     "build": "nodemon app.js",
-    "heroku-postbuild": "concurrently \"nodemon app.js\" \"cd frontend && npm start\"",
+    "heroku-postbuild": "cd frontend && npm install && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
