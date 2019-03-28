@@ -26,9 +26,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "concurrently \"nodemon app.js\" \"cd frontend && npm start\"",
+    "start": "cd frontend && npm start",
     "build": "nodemon app.js",
-    "heroku-postbuild": "cd frontend && npm start",
+    "heroku-postbuild": "concurrently \"nodemon app.js\" \"cd frontend && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
