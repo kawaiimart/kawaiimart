@@ -24,7 +24,7 @@
   "scripts": {
     "start": "nodemon app.js",
     "build": "nodemon app.js",
-    "heroku-postbuild": "cd frontend && npm install && npm start",
+    "heroku-postbuild": "cd frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
