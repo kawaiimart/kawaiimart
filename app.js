@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const db = require('./config/keys');
 const users = require('./routes/user');
+const products = require('./routes/product');
 const path = require('path');
 
 mongoose.connect(db.mongoURI, { useNewUrlParser: true }).then(
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/api/users', users);
+app.use('/api/products', products);
 
 app.get('/', function(req, res) {
     res.send('hello');
