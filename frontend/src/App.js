@@ -10,7 +10,7 @@ import Navbar from './components/Navbar';
 import Register from './components/register';
 import Login from './components/login';
 import Home from './components/home';
-import Product from './components/products';
+import Products from './components/products';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -37,7 +37,7 @@ class App extends Component {
                 <div className="container">
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
-                  <Route exact path="/products" component={ Product } />
+                  <Route exact path="/products" component={ Products } />
 
                 </div>
             </div>

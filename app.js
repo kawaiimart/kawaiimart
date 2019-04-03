@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const db = require('./config/keys');
 const users = require('./routes/user');
-const products = require('./routes/product');
+const products = require('./routes/products');
 const path = require('path');
 
 mongoose.connect(db.mongoURI, { useNewUrlParser: true }).then(
