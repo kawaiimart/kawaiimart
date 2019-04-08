@@ -7,11 +7,6 @@ const passport = require('passport');
 
 const Product = require('../models/Product');
 
-// router.get('/test', passport.authenticate('jwt', { session: false }), (req, res) => {
-    // });
-    // 
-
-
 
 // GET api/products
 router.get('/', function(req, res) {
@@ -19,18 +14,25 @@ router.get('/', function(req, res) {
     .then(products => res.json(products))
 });
 
-
 // POST api/products
 router.post('/', function(req, res) {
+    
     // Construct an object to insert to DB
-
     const newProduct = new Product({
         name: req.body.name,
         price: req.body.price
     })
 
+    // Adds newly created product to database.
+    // Also responds with the product
     newProduct.save().then(product => res.json(product))
-
 });
+
+// DELETE api/products
+router.delete('/:id', function(req, res) {
+   Product.findById(req.params.id)
+   .then(product => product.remove().then(() => res.json({success: true})))
+   .catch(err => res.status(404).json({success: false}))
+})
 
 module.exports = router;
