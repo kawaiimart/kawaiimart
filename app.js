@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const config = require('./db');
+const path = require('path');
 
 const users = require('./routes/user');
 
@@ -19,9 +20,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/api/users', users);
+app.use(express.static(path.join(__dirname, "frontend", "build")));
 
-app.get('/', function(req, res) {
-    res.send('hello');
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
