@@ -22,7 +22,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "concurrently \"nodemon app.js\" \"npm run heroku-postbuild\"",
     "heroku-postbuild":"cd frontend && npm i && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
