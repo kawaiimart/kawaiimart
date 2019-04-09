@@ -1,1 +1,1 @@
-web:  npm start --port $5000 
+web:  npm start --port $3000 
