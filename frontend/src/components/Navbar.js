@@ -33,7 +33,7 @@ class Navbar extends Component {
       )
         return(
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to="/">KawaiiMart</Link>
+                <Link className="navbar-brand" to="/"><img src= "KawaiiMart.png"/></Link>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     {isAuthenticated ? authLinks : guestLinks}
                 </div>
