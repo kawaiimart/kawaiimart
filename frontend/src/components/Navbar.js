@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/authentication';
 import { withRouter } from 'react-router-dom';
+import './Navbar.css'
 
 class Navbar extends Component {
 
@@ -24,20 +25,48 @@ class Navbar extends Component {
       const guestLinks = (
         <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-                <Link className="nav-link" to="/register">Sign Up</Link>
+                <Link class="nav-link" to="/register">Sign Up</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/login">Log In</Link>
+                <Link class="nav-link" to="/login">Log In</Link>
             </li>
         </ul>
       )
         return(
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to="/"><img src= "KawaiiMart.png"/></Link>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    {isAuthenticated ? authLinks : guestLinks}
-                </div>
-            </nav>
+          <div>
+              <nav className="navbar navbar-expand-lg navbar-light bg-white">
+                  <Link class="navbar-brand" to="/"><img src = {require('../KawaiiMart.png')} className = "LogoHome" alt= "KawaiiMart"/></Link>
+                  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                      {isAuthenticated ? authLinks : guestLinks}
+                    </div>
+              </nav>
+              <nav class="navbar navBottom navbar-expand-lg navbar-dark bg-dark">
+                  <Link class="navbar-brand" to="/">Home</Link>
+                  <div class= "collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Browse
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <Link class= "dropdown-item"  to="/">Category1</Link>
+                          <Link class= "dropdown-item"  to="/">Category2</Link>
+                          <Link class= "dropdown-item"  to="/">Category3</Link>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <Link class="nav-link" to="/">About</Link>
+                      </li>
+                      <li class="nav-item">
+                        <Link class="nav-link" to="/">Rewards</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                  </form>
+              </nav>
+            </div>
         )
     }
 }
