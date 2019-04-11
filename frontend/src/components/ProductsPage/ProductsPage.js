@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import Product from './Product';
 import productData from "./mockdata/SampleProducts"
 
-import './products.css';
+//import './products.css';
+import './producttesting.scss'
 
 export default class ProductsPage extends Component {
     

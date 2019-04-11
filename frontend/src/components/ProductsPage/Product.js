@@ -5,9 +5,9 @@ import React, { Component } from 'react';
 function Product(props) {
     return (
         <div className="product">
-            <p className="product_name">{props.product.name}</p>
-            <p className="product_price">{props.product.price}</p>
-            <p className="product_desc">{props.product.desc}</p>
+            <p className="product-name">{props.product.name}</p>
+            <p className="product-price">{props.product.price}</p>
+            <p className="product-desc">{props.product.desc}</p>
         
         </div>
     )
