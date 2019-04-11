@@ -1,3 +1,8 @@
+
+// Note: this is basically trash. Just a different tutorial I'm following
+
+
+
 import React, {Component} from 'react';
 import { Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
 import {CSSTransition, TransitionGroup } from 'react-transition-group';

@@ -15,7 +15,7 @@ const productData = [
         id: 3,
         name: "Mango Juice",
         price: "$4.99",
-        desc: "Juices mangos from my tree.",
+        desc: "Juiced mangos from my tree.",
     },
     {
         id: 4,

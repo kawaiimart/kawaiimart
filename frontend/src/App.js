@@ -10,7 +10,7 @@ import Navbar from './components/Navbar';
 import Register from './components/register';
 import Login from './components/login';
 import Home from './components/home';
-import Products from './components/products';
+import Products from './components/ProductsPage/ProductsPage';
 import ShoppingList from './components/ShoppingList';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
