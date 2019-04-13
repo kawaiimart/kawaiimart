@@ -3,27 +3,21 @@
     flex-wrap: wrap;
     width: 85%;
     min-height: 600px;
-  
-    &-header {
-      width: 100%;
-      margin-bottom: 10px;
-  
-      .products-found {
-        float: left;
-        margin: 0;
-        margin-top: 8px;
-      }
-    }
+    background-color:"coral";
+    
+    
   
     .product {
       width: 25%;
       position: relative;
       text-align: center;
       box-sizing: border-box;
-      padding: 10px;
-      margin-bottom: 30px;
+      padding-top: 30px;
+      padding-bottom: 35px;
+      margin-bottom: 0px;
       border: 1px solid transparent;
       cursor: pointer;
+      
   
       &:hover {
         border: 1px solid #eee;
@@ -35,23 +29,15 @@
   
       .product-name {
         position: relative;
-        padding: 0 20px;
+        padding: 10px 10px;
         height: 45px;
-  
-        &::before {
-          content: '';
-          width: 20px;
-          height: 2px;
-          background-color: #eabf00;
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          margin-left: -10px;
-        }
+        
+        font-size: 1.3em;
+        
       }
   
       .product-price {
-        height: 60px;
+        
   
         .val {
           b {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 //import ProductGrid from './ProductGrid'
 import Product from './Product';
-import productData from "./mockdata/SampleProducts"
-
+import OldProductData from "./mockdata/SampleProducts"
+import productData from "./mockdata/SampleProductsGen"
 //import './products.css';
 import './producttesting.scss'
 
