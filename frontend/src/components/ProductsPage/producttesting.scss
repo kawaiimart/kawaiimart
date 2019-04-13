@@ -1,3 +1,12 @@
+#small_kwm {
+  position: relative;
+  width: 400px;
+  height: 100px;
+  margin: 30px;
+  position: static;
+  
+}
+
 .prod-grid-container {
     display: flex;
     flex-wrap: wrap;
@@ -6,6 +15,7 @@
     background-color:"coral";
     
     
+   
   
     .product {
       width: 25%;

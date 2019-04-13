@@ -26,6 +26,7 @@ export default class ProductsPage extends Component {
             <div className="prod-grid-container">
                 {/* ex: <ProductHeader> */}
                 {products}
+                <img src={require('../../images/RandomGraphics/k_w_temp_banner.png')} id="small_kwm"/>
             </div>
         );
     }

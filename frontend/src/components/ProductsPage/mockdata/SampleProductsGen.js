@@ -1,3 +1,5 @@
+/*Generated this with with a python script I wrote. I included the file in the mockdata dir. */
+
 const SampleProductsGen =  [
 	{
 		id: "0",
