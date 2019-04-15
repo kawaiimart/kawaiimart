@@ -6,6 +6,7 @@ const config = require('./db');
 const path = require('path');
 
 const users = require('./routes/user');
+const products = require('./routes/products');
 
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
     () => {console.log('Database is connected') },
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/api/users', users);
+app.use('/api/products', products);
 app.use(express.static(path.join(__dirname, "frontend", "build")));
 
 app.get("*", (req, res) => {

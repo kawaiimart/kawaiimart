@@ -1,0 +1,62 @@
+#small_kwm {
+  position: relative;
+  width: 400px;
+  height: 100px;
+  margin: 30px;
+  position: static;
+
+}
+
+.prod-grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    min-height: 600px;
+    background-color:"coral";
+
+
+    .product {
+      width: 25%;
+      position: relative;
+      text-align: center;
+      box-sizing: border-box;
+      padding-top: 30px;
+      padding-bottom: 35px;
+      margin-bottom: 0px;
+      border: 1px solid transparent;
+      cursor: pointer;
+
+
+      &:hover {
+        border: 1px solid #eee;
+
+        .shelf-item__buy-btn {
+          background-color: #eabf00;
+        }
+      }
+
+      .product-name {
+        position: relative;
+        padding: 10px 10px;
+        height: 45px;
+
+        font-size: 1.3em;
+
+      }
+
+      .product-price {
+
+
+        .val {
+          b {
+            font-size: 1.5em;
+            margin-left: 5px;
+          }
+        }
+
+        .installment {
+          color: #9c9b9b;
+        }
+      }
+    }
+  }
