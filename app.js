@@ -2,13 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-<<<<<<< HEAD
-const config = require('./db');
-const path = require('path');
+const db = require('./config/db');
 
-=======
-const db = require('./config/keys');
->>>>>>> ProductsPageEarly
 const users = require('./routes/user');
 const products = require('./routes/products');
 const path = require('path');
@@ -26,11 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/api/users', users);
-<<<<<<< HEAD
 app.use(express.static(path.join(__dirname, "frontend", "build")));
-=======
-app.use('/api/products', products);
->>>>>>> ProductsPageEarly
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
