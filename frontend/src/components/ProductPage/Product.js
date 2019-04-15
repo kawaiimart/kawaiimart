@@ -7,7 +7,7 @@ function Product(props)  {
     return (
         <div className="product">
             <Thumbnail
-                src = {require(`../images/PixelFood/${props.product.name}.png`)}
+                src = {require(`../../images/PixelFood/${props.product.name}.png`)}
             />
             <p className="product-name">{props.product.displayname}</p>
             <p className="product-price">{props.product.price}</p>

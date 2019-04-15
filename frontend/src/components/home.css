@@ -1,0 +1,45 @@
+/*.home is everything between the header and the footer*/
+.home{
+  background-image: url("../background.png");
+  background-repeat: repeat;
+}
+/*.cover is the container holding all elements*/
+.cover{
+  color: white;
+  padding: 10px;
+}
+
+.welcome{
+  display: inline-block;
+  background-color: grey;
+  padding: 10px;
+}
+.cover-heading{
+  display: inline-block;
+  background-color: grey;
+  padding: 10px;
+}
+
+.item{
+  background-color: grey;
+  display: inline-block;
+  padding: 10px;
+  margin: 180px;
+}
+
+.row-header {
+  height: 150px;
+  margin: 20px;
+
+}
+
+.container {
+  margin-top: 10px;
+}
+
+.comment {
+  background-color: #2F948B;
+  border-radius: 20px;
+  padding: 7px;
+  vertical-align: middle !important;
+}
