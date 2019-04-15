@@ -7,6 +7,7 @@ import setAuthToken from './setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authentication';
 
 import Navbar from './components/Navbar';
+import FooterBar from './components/FooterBar'
 import Register from './components/register';
 import Login from './components/login';
 import Home from './components/home';
@@ -37,6 +38,7 @@ class App extends Component {
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
                 </div>
+              <FooterBar />
             </div>
           </Router>
         </Provider>
