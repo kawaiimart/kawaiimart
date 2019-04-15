@@ -1,0 +1,56 @@
+#small_kwm {
+  position: relative;
+  width: 400px;
+  height: 100px;
+  margin: 30px;
+  position: static;
+}
+
+.prod-grid-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 85%;
+  min-height: 600px;
+  background-color: "coral";
+}
+
+.prod-grid-container .product {
+  width: 25%;
+  position: relative;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 30px;
+  padding-bottom: 35px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.prod-grid-container .product:hover {
+  border: 1px solid #eee;
+}
+
+.prod-grid-container .product:hover .shelf-item__buy-btn {
+  background-color: #eabf00;
+}
+
+.prod-grid-container .product .product-name {
+  position: relative;
+  padding: 10px 10px;
+  height: 45px;
+  font-size: 1.3em;
+}
+
+.prod-grid-container .product .product-price .val b {
+  font-size: 1.5em;
+  margin-left: 5px;
+}
+
+.prod-grid-container .product .product-price .installment {
+  color: #9c9b9b;
+}
+/*# sourceMappingURL=producttesting.css.map */

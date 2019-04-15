@@ -11,6 +11,8 @@ import FooterBar from './components/FooterBar'
 import Register from './components/register';
 import Login from './components/login';
 import Home from './components/home';
+import Products from './components/ProductsPage/ProductsPage';
+import ShoppingList from './components/ShoppingList';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -37,6 +39,9 @@ class App extends Component {
                 <div className="container">
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
+                  <Route exact path="/products" component={ Products } />
+                  <Route exact path="/shoppinglist" component={ ShoppingList } />
+
                 </div>
               <FooterBar />
             </div>

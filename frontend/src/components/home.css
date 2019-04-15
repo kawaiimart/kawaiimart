@@ -2,6 +2,7 @@
 .home{
   background-image: url("../background.png");
   background-repeat: repeat;
+
 }
 /*.cover is the container holding all elements*/
 .cover{
@@ -11,17 +12,17 @@
 
 .welcome{
   display: inline-block;
-  background-color: grey;
+  background-color: #343a40;
   padding: 10px;
 }
 .cover-heading{
   display: inline-block;
-  background-color: grey;
+  background-color: #343a40;
   padding: 10px;
 }
 
 .item{
-  background-color: grey;
+  background-color: #343a40;
   display: inline-block;
   padding: 10px;
   margin: 180px;

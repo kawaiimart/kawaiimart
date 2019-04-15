@@ -2,12 +2,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+<<<<<<< HEAD
 const config = require('./db');
 const path = require('path');
 
+=======
+const db = require('./config/keys');
+>>>>>>> ProductsPageEarly
 const users = require('./routes/user');
+const products = require('./routes/products');
+const path = require('path');
 
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
+mongoose.connect(db.mongoURI, { useNewUrlParser: true }).then(
     () => {console.log('Database is connected') },
     err => { console.log('Can not connect to the database'+ err)}
 );
@@ -20,11 +26,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/api/users', users);
+<<<<<<< HEAD
 app.use(express.static(path.join(__dirname, "frontend", "build")));
+=======
+app.use('/api/products', products);
+>>>>>>> ProductsPageEarly
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 });
+
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('/frontend/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    })
+}
 
 const PORT = process.env.PORT || 5000;
 

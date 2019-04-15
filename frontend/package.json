@@ -7,13 +7,17 @@
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "jwt-decode": "^2.2.0",
+    "node-sass": "^4.11.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-redux": "^6.0.1",
-    "react-scripts": "^2.1.8",
     "react-router-dom": "^5.0.0",
+    "react-scripts": "^2.1.8",
+    "react-transition-group": "^2.9.0",
+    "reactstrap": "^8.0.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,6 +34,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "proxy": "http://localhost:5000"
+  ]
 }
