@@ -9,11 +9,10 @@ export default class Home extends Component {
                 </header>
                 <main class= "inner cover">
                   <h4 class="cover-heading">See today's featured items</h4>
-                  <div className="container">
                    <div className="row row-header">
-                    <div className="col col-4">
-                    <img src = {require('../images/PixelFood/Chicken.png')} className="chicken" alt="Chicken"/>
-                    <img src = {require('../images/PixelFood/Beer.png')} className="beer" alt="Beer"/>
+                    <div className="col col-4 image">
+                        <img src = {require('../images/PixelFood/Chicken.png')} className="chicken" alt="Chicken"/>
+                        <img src = {require('../images/PixelFood/Beer.png')} className="beer" alt="Beer"/>
                     </div>
                     <div className="comment col">
                       <h2>Game of Thrones Special</h2>
@@ -25,15 +24,15 @@ export default class Home extends Component {
                       <h2>Gen Z Discount</h2>
                       <p>We can relate to the end of the month struggle, that is why we have decided to give out a hand to our youngsters. Buy Toast and Avocado and get Salmon free!</p>
                     </div>
-                    <div className="col">
-                      <img src = {require('../images/PixelFood/Beer.png')} className="beer" alt="Beer"/>
-                      <img src = {require('../images/PixelFood/Beer.png')} className="beer" alt="Beer"/>
+                    <div className="col image">
+                      <img src = {require('../images/PixelFood/Bread.png')} className="bread" alt="Bread"/>
+                      <img src = {require('../images/PixelFood/Avocado.png')} className="avocado" alt="Avocado"/>
+                      <img src = {require('../images/PixelFood/FishSteak.png')} className="salmon" alt="Salmon"/>
                     </div>
                    </div>
                    <div className="row row-header">
-                    <div className="col col-4">
-                      <img src = {require('../images/PixelFood/Beer.png')} className="beer" alt="Beer"/>
-                      <img src = {require('../images/PixelFood/Beer.png')} className="beer" alt="Beer"/>
+                    <div className="col col-4 image">
+                      <img src = {require('../images/PixelFood/FishFillet.png')} className="fish" alt="Fish"/>
                     </div>
                     <div className="comment col">
                       <h2>Kawaii Catch of the Day</h2>
@@ -45,22 +44,23 @@ export default class Home extends Component {
                       <h2>Life After COACHELLA</h2>
                       <p>Sadly, the dream is over. Now is time to stay hidrated and recover; therefore, we prepared a special sale for Vitamin Water — all flavors for $0.70 each!</p>
                     </div>
-                    <div className="col">
-                      <img src = {require('../images/PixelFood/Beer.png')} className="beer" alt="Beer"/>
-                      <img src = {require('../images/PixelFood/Beer.png')} className="beer" alt="Beer"/>
+                    <div className="col image">
+                      <img src = {require('../images/PixelFood/Wine.png')} className="water" alt="Water"/>
                     </div>
                    </div>
                    <div className="row row-header">
-                    <div className="col col-4">
-                      <img src = {require('../images/PixelFood/Beer.png')} className="beer" alt="Beer"/>
-                      <img src = {require('../images/PixelFood/Beer.png')} className="beer" alt="Beer"/>
+                    <div className="col col-4 image">
+                      <img src = {require('../images/PixelFood/PiePumpkin.png')} className="pumpkin" alt="Pumpkin"/>
+                      <img src = {require('../images/PixelFood/PieLemon.png')} className="lemon" alt="Lemon"/>
                     </div>
                     <div className="comment col">
                       <h2>National Pie Day</h2>
                       <p>Get 2x1 in any pie purchases. It is the sweetest time of the year! Our chef's recommendation this week: Lemon Pie</p>
                     </div>
                    </div>
-                  </div>
+                   <div className="row row-last">
+                   <p></p>
+                   </div>
                 </main>
             </div>
         );
