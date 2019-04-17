@@ -40,30 +40,30 @@ class Navbar extends Component {
                       {isAuthenticated ? authLinks : guestLinks}
                     </div>
               </nav>
-              <nav class="navbar navBottom navbar-expand-lg navbar-dark bg-dark">
-                  <Link class="navbar-brand" to="/">Home</Link>
-                  <div class= "collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <nav className="navbar navBottom navbar-expand-lg navbar-dark bg-dark">
+                  <Link className="navbar-brand" to="/">Home</Link>
+                  <div className= "collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul className="navbar-nav">
+                      <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Browse
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <Link class= "dropdown-item"  to="/">Category1</Link>
-                          <Link class= "dropdown-item"  to="/">Category2</Link>
-                          <Link class= "dropdown-item"  to="/">Category3</Link>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <Link className= "dropdown-item"  to="/">Category1</Link>
+                          <Link className= "dropdown-item"  to="/">Category2</Link>
+                          <Link className= "dropdown-item"  to="/">Category3</Link>
                         </div>
                       </li>
-                      <li class="nav-item">
+                      <li className="nav-item">
                         <Link class="nav-link" to="/">About</Link>
                       </li>
-                      <li class="nav-item">
+                      <li className="nav-item">
                         <Link class="nav-link" to="/">Rewards</Link>
                       </li>
                     </ul>
                   </div>
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                  <form className="form-inline my-2 my-lg-0">
+                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                   </form>
               </nav>
             </div>

@@ -11,13 +11,18 @@
 
 .welcome{
   display: inline-block;
-  background-color: grey;
+  background-color: #343a40;
   padding: 10px;
 }
+
 .cover-heading{
+  color: #343a40;
   display: inline-block;
-  background-color: grey;
   padding: 10px;
+}
+
+.head{
+  color: #343a40;
 }
 
 .item{
@@ -30,7 +35,6 @@
 .row-header {
   height: 150px;
   margin: 20px;
-
 }
 
 .container {
@@ -38,7 +42,7 @@
 }
 
 .comment {
-  background-color: #2F948B;
+  background-color: #343a40;
   border-radius: 20px;
   padding: 7px;
   vertical-align: middle !important;
