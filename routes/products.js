@@ -1,12 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 
-
 const Product = require('../models/Product');
-
 
 // GET api/products
 router.get('/', function(req, res) {
@@ -20,7 +17,8 @@ router.post('/', function(req, res) {
     // Construct an object to insert to DB
     const newProduct = new Product({
         name: req.body.name,
-        price: req.body.price
+        price: req.body.price,
+        stock: req.body.stock
     })
 
     // Adds newly created product to database.

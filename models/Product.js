@@ -8,13 +8,30 @@ const ProductSchema = new Schema({
         required: true,
     },
 
+    pic: {
+      type: String,
+    },
+
     price: {
-        type: Number,
+        type: String,
         required: true,
+    },
+
+    discount: {
+      type: Number,
+    },
+
+    category: {
+      type: String,
     },
 
     description: {
         type: String,
+    },
+
+    stock: {
+      type: Number,
+      required: true,
     }
 });
 
