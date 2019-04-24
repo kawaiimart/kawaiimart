@@ -26,3 +26,29 @@
   padding: 10px;
   margin: 180px;
 }
+
+.row-header {
+  height: 150px;
+  margin: 20px;
+  background-color: #2F948B;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 20px !important;
+}
+
+.comment {
+  background-color: #2F948B;
+  border-radius: 20px;
+  padding: 7px;
+  vertical-align: middle !important;
+}
+
+.margin {
+  margin: 0 auto;
+}
+
+.row-last {
+  height: 50px;
+  position: sticky;
+
+}

@@ -6,6 +6,7 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authentication';
 
+import Products from './components/ProductPage/ProductsPage';
 import Navbar from './components/Navbar';
 import FooterBar from './components/FooterBar'
 import Register from './components/register';
@@ -37,6 +38,7 @@ class App extends Component {
                 <div className="container">
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
+                  <Route exact path="/products" component={ Products } />
                 </div>
               <FooterBar />
             </div>
