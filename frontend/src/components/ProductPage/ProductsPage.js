@@ -14,10 +14,8 @@ export default class ProductsPage extends Component {
         }
     }
 
-
     render() {
-      
-        const products = this.state.productList.map(product => <Product product={product}/> )
+        const products = this.state.productList.map(product => <Product product={product}/>)
 
         return (
             // prod-grid-container will hold ProductGrids + other things

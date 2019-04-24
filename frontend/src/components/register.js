@@ -5,6 +5,12 @@ import { withRouter } from 'react-router-dom';
 import { registerUser } from '../actions/authentication';
 import classnames from 'classnames';
 
+const buttonStyle = {
+  background: "grey",
+  color: "whitesmoke",
+  border: "grey"
+}
+
 class Register extends Component {
 
     constructor() {
@@ -57,7 +63,7 @@ class Register extends Component {
     render() {
         const { errors } = this.state;
         return(
-        <div className="container" style={{ marginTop: '50px', width: '700px'}}>
+        <div className="container" style={{ marginTop: '50px', width: '700px', marginBottom: '70px'}}>
             <h2 style={{marginBottom: '40px'}}>Registration</h2>
             <form onSubmit={ this.handleSubmit }>
                 <div className="form-group">
@@ -113,7 +119,7 @@ class Register extends Component {
                     {errors.password_confirm && (<div className="invalid-feedback">{errors.password_confirm}</div>)}
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-primary">
+                    <button style = {buttonStyle} type="submit" className="btn btn-primary">
                         Register User
                     </button>
                 </div>

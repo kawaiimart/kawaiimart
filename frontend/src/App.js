@@ -12,6 +12,7 @@ import Register from './components/register';
 import Login from './components/login';
 import Home from './components/home';
 import FooterBar from './components/FooterBar';
+import Checkout from './components/checkout'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,6 +40,7 @@ class App extends Component {
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
                   <Route exact path="/products" component={ Products } />
+                  <Route exact path="/checkout" component={ Checkout } />
                 </div>
                 <FooterBar />
             </div>

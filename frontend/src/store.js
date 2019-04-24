@@ -8,6 +8,6 @@ const store = createStore(
         rootReducer,
         inititalState,
         compose(applyMiddleware(thunk),
-                window.devToolsExtension ? window.devToolsExtension() : f => f));
+                window.devToolsExtension ? window.devToolsExtension() : f => f),);
 
 export default store;

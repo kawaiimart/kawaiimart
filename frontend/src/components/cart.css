@@ -1,0 +1,40 @@
+.cart {
+  position: fixed;
+  padding: 10px;
+  color: whitesmoke;
+  top: 68px;
+  right: -400px;
+  width: 400px;
+  height: 80%;
+  background: #151719;
+  z-index: 1000;
+  transition: all 300ms linear;
+  overflow-y: scroll;
+}
+
+.cart.active {
+  right: 0%;
+}
+
+.cartItem {
+  background: #333A40;
+  font-size: 16px;
+  width: 400px;
+  height: 100px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.cartItem span {
+  display: inline-block;
+  width: 110px;
+}
+
+.cartItem span button {
+  margin: 5px;
+  width: 25px;
+}
+
+.cartItem span span {
+  display: inline;
+}

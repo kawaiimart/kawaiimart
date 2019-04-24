@@ -4,9 +4,9 @@ import React, {Component} from 'react'
 const Thumbnail = props => {
 
     return(
-        <div className="thumb">
+        <span className="thumb">
             <img src={props.src} />
-        </div>
+        </span>
     )
 
 }

@@ -4,6 +4,12 @@ import { connect } from 'react-redux';
 import { loginUser } from '../actions/authentication';
 import classnames from 'classnames';
 
+const buttonStyle = {
+  background: "grey",
+  color: "whitesmoke",
+  border: "grey"
+}
+
 class Login extends Component {
 
     constructor() {
@@ -82,7 +88,7 @@ class Login extends Component {
                     {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-primary">
+                    <button style={buttonStyle} type="submit" className="btn btn-primary">
                         Login User
                     </button>
                 </div>

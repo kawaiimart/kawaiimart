@@ -13,9 +13,6 @@ export default class Navbar extends Component {
                         <Link class="nav-link" to="/">Contact Us</Link>
                       </li>
                       <li class="nav-item">
-                        <Link class="nav-link" to="/">Order Tracking</Link>
-                      </li>
-                      <li class="nav-item">
                         <Link class="nav-link" to="/">Social Media</Link>
                       </li>
                       <li class="nav-item">

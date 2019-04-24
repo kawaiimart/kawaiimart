@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Cart from "./cart";
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/authentication';
 import { withRouter } from 'react-router-dom';
 import './Navbar.css';
+import './cart.css'
 
 class Navbar extends Component {
 
@@ -17,8 +19,9 @@ class Navbar extends Component {
       super(props);
 
       this.toggle = this.toggle.bind(this);
+      this.toggleCart = this.toggleCart.bind(this);
       this.state = {
-        dropdownOpen: false
+        dropdownOpen: false,
       };
     }
 
@@ -26,6 +29,11 @@ class Navbar extends Component {
       this.setState(prevState => ({
         dropdownOpen: !prevState.dropdownOpen
       }));
+    }
+
+    toggleCart() {
+      document.getElementById("cart").classList.toggle('active');
+
     }
 
     render() {
@@ -47,12 +55,22 @@ class Navbar extends Component {
             </li>
         </ul>
       )
+
+      const cart = (
+              <div>
+                <div className="nav-item navbar-nav ml-auto" onClick={this.toggleCart}>
+                  <Link className="nav-link">Cart</Link>
+                </div>
+                <Cart/>
+              </div>
+      )
         return(
           <div>
               <nav className="navbar navbar-expand-lg navbar-light bg-white">
                   <Link className="navbar-brand" to="/"><img src = {require('../KawaiiMart.png')} className = "LogoHome" alt= "KawaiiMart"/></Link>
                   <div className="collapse navbar-collapse" id="navbarSupportedContent">
                       {isAuthenticated ? authLinks : guestLinks}
+                      {cart}
                     </div>
               </nav>
               <nav className="navbar navBottom navbar-expand-lg navbar-dark bg-dark">
@@ -76,6 +94,9 @@ class Navbar extends Component {
                       </li>
                       <li className="nav-item">
                         <Link className="navbar-brand" to="/">Rewards</Link>
+                      </li>
+                      <li className="nav=item">
+                        <Link className="navbar-brand" to="/products">Products</Link>
                       </li>
                     </ul>
                   </div>
