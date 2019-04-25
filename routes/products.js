@@ -20,7 +20,11 @@ router.post('/', function(req, res) {
     // Construct an object to insert to DB
     const newProduct = new Product({
         name: req.body.name,
-        price: req.body.price
+        price: req.body.price,
+        desc: req.body.desc,
+        stock: req.body.stock,
+        img: req.body.img,
+        
     })
 
     // Adds newly created product to database.

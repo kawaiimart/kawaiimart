@@ -7,15 +7,24 @@ const ProductSchema = new Schema({
         type: String,
         required: true,
     },
-
     price: {
         type: Number,
         required: true,
     },
-
     description: {
         type: String,
+    },
+    stock: {
+        type: Number,
+        //required: true
+    },
+    img: {
+        type: String
+    },
+    discount: {
+        type: Number
     }
+
 });
 
 const Product = mongoose.model('products', ProductSchema);
