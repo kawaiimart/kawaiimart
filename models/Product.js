@@ -5,17 +5,29 @@ const Schema = mongoose.Schema;
 const ProductSchema = new Schema({
     name: {
         type: String,
-        required: true,
+        //required: true,
     },
-
     price: {
         type: Number,
-        required: true,
+        //required: true,
     },
-
-    description: {
+    desc: {
         type: String,
+    },
+    stock: {
+        type: Number,
+        //required: true
+    },
+    img: {
+        type: String
+    },
+    discount: {
+        type: Number
+    },
+    category: {
+        type: String
     }
+
 });
 
 const Product = mongoose.model('products', ProductSchema);

@@ -1,0 +1,29 @@
+
+
+.prod-form {
+    background-color: rgb(245, 227, 86);
+    height: relative;
+    padding: 10px;
+    margin: 20px;  
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    border-radius: 3px;
+
+    input {
+        border: 1px none ;
+        border-radius: 2px;
+        margin: 5px;
+        
+    }
+
+    .subButton {
+        margin-top: 10px;
+        border: 1px none;
+        border-radius: 2px;
+        position: relative;
+        color: white;
+        background-color: cadetblue;
+    }
+
+}
