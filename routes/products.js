@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
         desc: req.body.desc,
         stock: req.body.stock,
         img: req.body.img,
-        
+        category: req.body.category,
     })
 
     // Adds newly created product to database.

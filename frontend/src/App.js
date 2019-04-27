@@ -12,7 +12,7 @@ import Register from './components/register';
 import Login from './components/login';
 import Home from './components/home';
 import FooterBar from './components/FooterBar';
-
+import AddProducts from './components/AddProducts/AddProducts'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 if(localStorage.jwtToken) {
@@ -39,6 +39,7 @@ class App extends Component {
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
                   <Route exact path="/products" component={ Products } />
+                  <Route exact path="/addproducts" component={ AddProducts } />
                 
                 </div>
                 <FooterBar />
