@@ -1,4 +1,4 @@
-import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM } from '../actions/types'
+import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM, EMPTY_CART } from '../actions/types'
 import productData from '../components/ProductPage/mockdata/SampleProductsGen'
 
 const initState = {
@@ -85,6 +85,17 @@ const cartReducer = (state = initState, action) => {
       }
 
       break;
+    }
+
+    case EMPTY_CART:
+    {
+        return {
+          ...state,
+          addedItems: [],
+          total: 0
+        }
+
+        break;
     }
 
     default:

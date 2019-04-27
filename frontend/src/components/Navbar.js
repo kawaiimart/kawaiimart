@@ -83,7 +83,7 @@ class Navbar extends Component {
                         </Link>
                         <div className="dropdown-container">
                           <ul className="dropdown">
-                            <li className="nav-item"><Link className="navbar-brand" to="/">Aile</Link></li>
+                            <li className="nav-item"><Link className="navbar-brand" to="/">Aisle</Link></li>
                             <li className="nav-item"><Link className="navbar-brand" to="/">Category</Link></li>
                             <li className="nav-item"><Link className="navbar-brand" to="/">Favorite</Link></li>
                           </ul>
@@ -95,8 +95,20 @@ class Navbar extends Component {
                       <li className="nav-item">
                         <Link className="navbar-brand" to="/">Rewards</Link>
                       </li>
-                      <li className="nav=item">
+                      <li className="nav-item">
                         <Link className="navbar-brand" to="/products">Products</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="navbar-brand" to='/fruitsVegetables'>Fruits/Vegetables</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="navbar-brand" to='/protein'>Protein</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="navbar-brand" to='/beverages'>Beverages</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="navbar-brand" to='/dessertsSweets'>Desserts/Sweets</Link>
                       </li>
                     </ul>
                   </div>

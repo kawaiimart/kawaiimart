@@ -13,6 +13,11 @@ import Login from './components/login';
 import Home from './components/home';
 import FooterBar from './components/FooterBar';
 import Checkout from './components/checkout'
+import Confirmation from './components/confirmation';
+import FruitsVegetables from './components/ProductPage/FruitsVegetablesPage';
+import Protein from './components/ProductPage/ProteinPage';
+import Beverages from './components/ProductPage/BeveragesPage';
+import DessertsSweets from './components/ProductPage/DessertsSweetsPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -41,6 +46,11 @@ class App extends Component {
                   <Route exact path="/login" component={ Login } />
                   <Route exact path="/products" component={ Products } />
                   <Route exact path="/checkout" component={ Checkout } />
+                  <Route exact path="/confirmation" component={ Confirmation } />
+                  <Route exact path="/fruitsVegetables" component={ FruitsVegetables } />
+                  <Route exact path="/protein" component={ Protein } />
+                  <Route exact path="/beverages" component={ Beverages } />
+                  <Route exact path="/dessertsSweets" component={ DessertsSweets } />
                 </div>
                 <FooterBar />
             </div>

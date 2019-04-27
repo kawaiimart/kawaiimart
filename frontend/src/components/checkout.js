@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { emptyCart } from '../actions/cartActions'
+
 
 class Checkout extends Component {
   constructor(props) {
@@ -11,6 +15,7 @@ class Checkout extends Component {
       state: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -22,6 +27,10 @@ class Checkout extends Component {
 
   handleSubmit() {
 
+  }
+
+  handleClick() {
+    this.props.emptyCart()
   }
 
   render() {
@@ -79,15 +88,22 @@ class Checkout extends Component {
               value={ this.state.state }
               />
           </div>
-          <div className="form-group">
-              <button style={{background: "grey", border: "grey"}} type="submit" className="btn btn-primary">
+          <Link to="/confirmation">
+              <button style={{background: "grey", border: "grey"}} type="submit" className="btn btn-primary"
+                onClick={this.handleClick}>
                   Confirm
               </button>
-          </div>
+          </Link>
         </form>
       </div>
     );
   }
 }
 
-export default Checkout;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    emptyCart: () => {dispatch(emptyCart())},
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Checkout);

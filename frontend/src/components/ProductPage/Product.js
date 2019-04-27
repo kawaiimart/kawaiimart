@@ -46,7 +46,7 @@ class Product extends Component
           onMouseEnter={this.handleMouseHover}
           onMouseLeave={this.handleMouseHover}>
               <Thumbnail
-                  src = {require(`../../images/PixelFood/${this.props.product.name}.png`)}
+                  src = {require(`../../images/ProductImages/${this.props.product.name}.png`)}
               />
               <p className="product-name">{this.props.product.displayname}</p>
               <p className="product-price">${this.props.product.price}</p>

@@ -2,10 +2,10 @@
   position: fixed;
   padding: 10px;
   color: whitesmoke;
-  top: 68px;
+  top: 11%;
   right: -400px;
   width: 400px;
-  height: 80%;
+  height: 100%;
   background: #151719;
   z-index: 1000;
   transition: all 300ms linear;

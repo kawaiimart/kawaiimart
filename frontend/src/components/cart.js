@@ -46,7 +46,7 @@ class Cart extends Component {
           <div>
             {this.props.addedItems.map(item => (
               <div className="cartItem" key={item.id}>
-                <Thumbnail src = {require(`../images/PixelFood/${item.name}.png`)}/>
+                <Thumbnail src = {require(`../images/ProductImages/${item.name}.png`)}/>
                 <span style={{paddingLeft: "20px"}}>
                   <div style={{position: "absolute"}}>{item.displayname}</div>
                   <a href="#a" style={removeStyle} onClick={() => {this.handleRemove(item.id)}}>Remove</a>
