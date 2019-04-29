@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/authentication';
 import classnames from 'classnames';
+import FooterBar from './FooterBar';
+import './login.css';
 
 const buttonStyle = {
   background: "grey",

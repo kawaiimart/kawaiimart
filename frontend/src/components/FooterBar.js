@@ -6,17 +6,23 @@ export default class Navbar extends Component {
     render() {
         return(
           <div>
-              <nav class="navbar nav-bottom navbar-expand-lg navbar-dark bg-dark">
-                  <div class= "collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <Link class="nav-link" to="/">Contact Us</Link>
+              <nav className="navbar navBottom navbar-expand-lg navbar-dark bg-dark">
+                  <div className= "collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul className="navbar-nav">
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/">Contact Us</Link>
                       </li>
-                      <li class="nav-item">
-                        <Link class="nav-link" to="/">Social Media</Link>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/">Order Tracking</Link>
                       </li>
-                      <li class="nav-item">
-                        <Link class="nav-link" to="/">Terms and Conditions</Link>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/">Social Media</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/">Social Media</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/">Terms and Conditions</Link>
                       </li>
                       <li class="nav-item">
                         <Link class="nav-link" to="/addproducts">Add product</Link>

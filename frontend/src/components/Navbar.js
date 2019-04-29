@@ -78,37 +78,20 @@ class Navbar extends Component {
                   <div className= "collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                       <li className="nav-item dropdown">
-                        <Link className="navbar-brand dropdown-toggle" to="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Browse
-                        </Link>
-                        <div className="dropdown-container">
-                          <ul className="dropdown">
-                            <li className="nav-item"><Link className="navbar-brand" to="/">Aisle</Link></li>
-                            <li className="nav-item"><Link className="navbar-brand" to="/">Category</Link></li>
-                            <li className="nav-item"><Link className="navbar-brand" to="/">Favorite</Link></li>
-                          </ul>
-                          </div>
+                        </a>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <Link className= "dropdown-item"  to="/">Category1</Link>
+                          <Link className= "dropdown-item"  to="/">Category2</Link>
+                          <Link className= "dropdown-item"  to="/">Category3</Link>
+                        </div>
                       </li>
                       <li className="nav-item">
-                        <Link className="navbar-brand" to="/">About</Link>
+                        <Link class="nav-link" to="/">About</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="navbar-brand" to="/">Rewards</Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="navbar-brand" to="/products">Products</Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="navbar-brand" to='/fruitsVegetables'>Fruits/Vegetables</Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="navbar-brand" to='/protein'>Protein</Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="navbar-brand" to='/beverages'>Beverages</Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="navbar-brand" to='/dessertsSweets'>Desserts/Sweets</Link>
+                        <Link class="nav-link" to="/">Rewards</Link>
                       </li>
                     </ul>
                   </div>

@@ -11,33 +11,46 @@
 
 .welcome{
   display: inline-block;
-  background-color: grey;
-  padding: 10px;
-}
-.cover-heading{
-  display: inline-block;
-  background-color: grey;
+  background-color: #343a40;
   padding: 10px;
 }
 
-.item{
-  background-color: grey;
+.cover-heading{
+  color: #343a40;
   display: inline-block;
   padding: 10px;
-  margin: 180px;
+}
+
+.carousel{
+  margin-left: 300px;
+  margin-right: 300px;
+  margin-bottom: 100px;
+}
+
+.carousel-item img{
+  object-fit: contain;
+
+}
+
+.head{
+  color: #343a40;
+}
+
+.item{
+
 }
 
 .row-header {
   height: 150px;
   margin: 20px;
-  background-color: #2F948B;
-  border-radius: 20px;
-  padding: 10px;
-  margin-bottom: 20px !important;
+}
+
+.container {
+  margin-top: 10px;
 }
 
 .comment {
-  background-color: #2F948B;
+  background-color: #343a40;
   border-radius: 20px;
   padding: 7px;
   vertical-align: middle !important;
