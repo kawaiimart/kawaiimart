@@ -25,16 +25,17 @@ router.post('/register', function(req, res) {
             });
         }
         else {
-            const avatar = gravatar.url(req.body.email, {
+/*            const avatar = gravatar.url(req.body.email, {
                 s: '200',
                 r: 'pg',
                 d: 'mm'
-            });
+            });*/
             const newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
-                avatar
+                address: req.body.address,
+                cart: req.body.cart    
             });
 
             bcrypt.genSalt(10, (err, salt) => {

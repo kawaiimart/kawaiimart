@@ -1,18 +1,19 @@
 const mongoose = require('mongoose');
-const product = require('../models/Product');
+const Product = require('../models/Product').schema;
+const User = require('../models/User').schema;
 
 const Schema = mongoose.Schema;
 
 const CartSchema = new Schema({
 
   user: {
-    id: String,
+    type: User,
   },
 
   items: [
     {
     product: {
-        type: product
+        type: Product,
     },
     quantity: Number,
     }
@@ -24,7 +25,6 @@ const CartSchema = new Schema({
 
   address: {
     type: String,
-    required: true,
   }
 
 });
