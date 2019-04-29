@@ -19,7 +19,8 @@ class Navbar extends Component {
 
       this.toggle = this.toggle.bind(this);
       this.state = {
-        dropdownOpen: false
+        dropdownOpen: false,
+        search: ''
       };
     }
 
@@ -30,6 +31,10 @@ class Navbar extends Component {
     }
 
     render() {
+        let filteredProducts = this.props.product.filter(
+          (product) => {
+          return product.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
         const {isAuthenticated, user} = this.props.auth;
         const authLinks = (
             <ul className="navbar-nav ml-auto">
@@ -81,7 +86,7 @@ class Navbar extends Component {
                     </ul>
                   </div>
                   <form className="form-inline my-2 my-lg-0">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.state.search}/>
                   </form>
               </nav>
             </div>
