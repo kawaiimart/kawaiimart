@@ -132,7 +132,7 @@ class Checkout extends Component {
           <Link to="/confirmation">
               <button style={{background: "grey", border: "grey"}} type="submit" className="btn btn-primary"
                 onClick={this.handleClick}>
-                  Confirm
+                  Place order
               </button>
           </Link>
         </form>

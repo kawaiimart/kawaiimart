@@ -21,7 +21,11 @@ class Register extends Component {
             email: '',
             password: '',
             password_confirm: '',
-            errors: {}
+            errors: {},
+            address: '',
+            city: '',
+            zipCode: '',
+            state: '',
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -71,7 +75,7 @@ class Register extends Component {
                 <div className="form-group">
                     <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="Name*"
                     className={classnames('form-control form-control-lg', {
                         'is-invalid': errors.name
                     })}
@@ -84,7 +88,7 @@ class Register extends Component {
                 <div className="form-group">
                     <input
                     type="email"
-                    placeholder="Email"
+                    placeholder="Email*"
                     className={classnames('form-control form-control-lg', {
                         'is-invalid': errors.email
                     })}
@@ -97,7 +101,7 @@ class Register extends Component {
                 <div className="form-group">
                     <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="Password*"
                     className={classnames('form-control form-control-lg', {
                         'is-invalid': errors.password
                     })}
@@ -110,7 +114,7 @@ class Register extends Component {
                 <div className="form-group">
                     <input
                     type="password"
-                    placeholder="Confirm Password"
+                    placeholder="Confirm Password*"
                     className={classnames('form-control form-control-lg', {
                         'is-invalid': errors.password_confirm
                     })}
@@ -119,6 +123,46 @@ class Register extends Component {
                     value={ this.state.password_confirm }
                     />
                     {errors.password_confirm && (<div className="invalid-feedback">{errors.password_confirm}</div>)}
+                </div>
+                <div className="form-group">
+                    <input
+                    type="text"
+                    placeholder="Address"
+                    name="address"
+                    className='form-control form-control-lg'
+                    onChange={ this.handleInputChange }
+                    value={ this.state.address }
+                    />
+                </div>
+                <div className="form-group">
+                    <input
+                    type="text"
+                    placeholder="City"
+                    name="city"
+                    className='form-control form-control-lg'
+                    onChange={ this.handleInputChange }
+                    value={ this.state.city }
+                    />
+                </div>
+                <div className="form-group">
+                    <input
+                    type="text"
+                    placeholder="Zip code"
+                    name="zipCode"
+                    className='form-control form-control-lg'
+                    onChange={ this.handleInputChange }
+                    value={ this.state.zipCode }
+                    />
+                </div>
+                <div className="form-group">
+                    <input
+                    type="text"
+                    placeholder="State"
+                    name="state"
+                    className='form-control form-control-lg'
+                    onChange={ this.handleInputChange }
+                    value={ this.state.state }
+                    />
                 </div>
                 <div className="form-group">
                     <button style = {buttonStyle} type="submit" className="btn btn-primary">

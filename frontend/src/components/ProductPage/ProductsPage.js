@@ -6,7 +6,7 @@ import productData from "./mockdata/SampleProductsGen";
 import './producttesting.scss';
 import axios from 'axios';
 import { connect } from 'react-redux';
-//import { setProductsData } from '../../actions/cartActions';
+import { setProductsData } from '../../actions/cartActions';
 
 
 class ProductsPage extends Component {
@@ -29,10 +29,11 @@ class ProductsPage extends Component {
                 this.setState(() => {
                     return {productList: res.data};
                 });
+
+                this.props.setProductsData(res.data);
             },
             res => {console.log(res)})
     }
-
 
     render() {
         const products = this.state.productList.map(product => <Product product={product}/>)
@@ -53,4 +54,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(ProductsPage)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setProductsData: (productsData) => {dispatch(setProductsData(productsData))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsPage)

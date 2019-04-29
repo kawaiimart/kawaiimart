@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 import './home.css'
 import FooterBar from './FooterBar';
-export default class Home extends Component {
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { setProductsData } from '../actions/cartActions';
+
+class Home extends Component {
+  componentDidMount() {
+      axios.get('/api/products')
+      .then(
+          res => {
+              console.log(res.data)
+              console.log("Got it!")
+              //this.state.productList = res.data
+
+              this.props.setProductsData(res.data);
+          },
+          res => {console.log(res)})
+  }
+
     render() {
         return (
             <div className = "home">
