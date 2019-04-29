@@ -10,14 +10,10 @@ export default class Home extends Component {
                   <div id="carouselExampleCaptions" className="carousel slide" data-ride="carousel">
                     <div className="carousel-inner">
                       <div className="carousel-item active">
-                      <img src={require('../templateSlide.svg')} className="d-block w-100"/>
-                      <div className="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                      </div>
+                        <img src={require('../KMP0.svg')} className="d-block w-100"/>
                       </div>
                       <div className="carousel-item">
-                      <img src={require('../templateSlide.svg')} className="d-block w-100"/>
+                        <img src={require('../templateSlide.svg')} className="d-block w-100"/>
                         <div className="carousel-caption d-none d-md-block">
                           <h5>Second slide label</h5>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
