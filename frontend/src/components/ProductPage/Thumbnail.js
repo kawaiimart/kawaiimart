@@ -4,9 +4,9 @@ import React, {Component} from 'react'
 const Thumbnail = props => {
 
     return(
-        <div className="thumb">
-            <img src={props.src} />
-        </div>
+        <span className="thumb">
+            <img style={{width: "100px", height: "100px"}} src={props.src} />
+        </span>
     )
 
 }

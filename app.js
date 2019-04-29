@@ -24,6 +24,9 @@ app.use('/api/users', users);
 app.use('/api/products', products);
 app.use(express.static(path.join(__dirname, "frontend", "public")));
 
+
+app.use('/api/addproducts', products);
+
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "public", "index.html"));
 });

@@ -4,20 +4,38 @@ import Product from './Product';
 import productData from "./mockdata/SampleProductsGen";
 //import './products.css';
 import './producttesting.scss';
+import axios from 'axios';
+import { connect } from 'react-redux';
+//import { setProductsData } from '../../actions/cartActions';
 
-export default class ProductsPage extends Component {
+
+class ProductsPage extends Component {
 
     constructor(props) {
-        super();
+        super(props);
         this.state = {
-            productList: productData,
+            productList: this.props.items,
         }
+    }
+
+    componentDidMount() {
+        axios.get('/api/products')
+        .then(
+            res => {
+                console.log(res.data)
+                console.log("Got it!")
+                //this.state.productList = res.data
+
+                this.setState(() => {
+                    return {productList: res.data};
+                });
+            },
+            res => {console.log(res)})
     }
 
 
     render() {
-      
-        const products = this.state.productList.map(product => <Product product={product}/> )
+        const products = this.state.productList.map(product => <Product product={product}/>)
 
         return (
             // prod-grid-container will hold ProductGrids + other things
@@ -28,3 +46,11 @@ export default class ProductsPage extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    items: state.cart.items,
+  }
+}
+
+export default connect(mapStateToProps)(ProductsPage)

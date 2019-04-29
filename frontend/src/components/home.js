@@ -1,6 +1,23 @@
 import React, { Component } from 'react';
 import './home.css'
-export default class Home extends Component {
+import { connect } from 'react-redux';
+import { setProductsData } from '../actions/cartActions';
+import axios from 'axios';
+
+class Home extends Component {
+  componentDidMount() {
+      axios.get('/api/products')
+      .then(
+          res => {
+              console.log(res.data)
+              console.log("Got it!")
+              //this.state.productList = res.data
+
+              this.props.setProductsData(res.data);
+          },
+          res => {console.log(res)})
+  }
+
     render() {
         return (
             <div className = "home">
@@ -88,3 +105,11 @@ export default class Home extends Component {
         );
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setProductsData: (productsData) => {dispatch(setProductsData(productsData))}
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Home)
