@@ -5,13 +5,16 @@ import productData from "./mockdata/SampleProductsGen";
 //import './products.css';
 import './producttesting.scss';
 import axios from 'axios';
+import { connect } from 'react-redux';
+//import { setProductsData } from '../../actions/cartActions';
 
-export default class ProductsPage extends Component {
+
+class ProductsPage extends Component {
 
     constructor(props) {
-        super();
+        super(props);
         this.state = {
-            productList: [],
+            productList: this.props.items,
         }
     }
 
@@ -22,14 +25,12 @@ export default class ProductsPage extends Component {
                 console.log(res.data)
                 console.log("Got it!")
                 //this.state.productList = res.data
-                
-                
+
                 this.setState(() => {
                     return {productList: res.data};
                 });
             },
             res => {console.log(res)})
-
     }
 
 
@@ -45,3 +46,11 @@ export default class ProductsPage extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    items: state.cart.items,
+  }
+}
+
+export default connect(mapStateToProps)(ProductsPage)

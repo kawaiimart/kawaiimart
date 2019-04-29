@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 import './style.scss';
 
 class AddProduct extends Component {
-  
+
   constructor(props){
     super(props)
 
@@ -23,6 +24,10 @@ class AddProduct extends Component {
 
             category: {
                 value: ''
+            },
+
+            img: {
+              value: ''
             },
 
           }
@@ -54,6 +59,7 @@ class AddProduct extends Component {
           price: p.price.value,
           desc: p.desc.value,
           category: p.category.value,
+          img: p.img.value,
       }
 
       axios.post('/api/products', product)
@@ -68,32 +74,43 @@ class AddProduct extends Component {
           <div>
               <form className="prod-form" onSubmit={this.handleSubmit}>
                   <label>  k a w a i i</label>
-                  
-                  <input type="text" 
+
+                  <input type="text"
                       name="productName"
-                      value={this.state.email}
+                      placeholder="Name"
+                      value={this.state.productName}
                       onChange={this.changeHandler}
                   />
 
                   <input type="number" step='.01'
-                      name="price" 
+                      name="price"
+                      placeholder="Price"
                       value={this.state.price}
                       onChange={this.changeHandler}
                   />
 
-                  <input type="text" 
+                  <input type="text"
                       name="desc"
+                      placeholder="Description"
                       value={this.state.desc}
                       onChange={this.changeHandler}
                   />
 
-                  <input type="text" 
+                  <input type="text"
                       name="category"
+                      placeholder="Category (choose from 4)"
                       value={this.state.category}
                       onChange={this.changeHandler}
                   />
 
-                  <input className="subButton" type="submit"/> 
+                  <input type="text"
+                      name="img"
+                      placeholder="Image name"
+                      value={this.state.img}
+                      onChange={this.changeHandler}
+                  />
+              
+                    <input className="subButton" type="submit"/>
               </form>
           </div>
       )

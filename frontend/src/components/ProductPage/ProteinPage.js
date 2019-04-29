@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Product from './Product';
-import productData from "./mockdata/SampleProductsGen";
 import './producttesting.scss';
+import { connect } from 'react-redux'
 
-export default class FruitsVegetablesPage extends Component {
+class ProteinPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      productList: productData,
+      productList: this.props.items,
     }
   }
 
@@ -25,3 +25,11 @@ export default class FruitsVegetablesPage extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    items: state.cart.items,
+  }
+}
+
+export default connect(mapStateToProps)(ProteinPage)

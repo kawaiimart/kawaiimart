@@ -1,35 +1,42 @@
-import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM, EMPTY_CART } from './types'
+import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM, EMPTY_CART, SET_PRODUCTS_DATA} from './types'
 
-export const addToCart = (id) => {
+export const addToCart = (name) => {
   return {
     type: ADD_TO_CART,
-    id,
+    name,
   }
 }
 
-  export const subtractQuantity = (id) => {
+  export const subtractQuantity = (name) => {
     return {
       type: SUB_QUANTITY,
-      id,
+      name,
     }
   }
 
-  export const addQuantity = (id) => {
+  export const addQuantity = (name) => {
     return {
       type: ADD_QUANTITY,
-      id,
+      name,
     }
   }
 
-  export const removeItem = (id) => {
+  export const removeItem = (name) => {
     return {
       type: REMOVE_ITEM,
-      id,
+      name,
     }
   }
 
   export const emptyCart = () => {
     return {
       type: EMPTY_CART,
+    }
+  }
+
+  export const setProductsData = (productsData) => {
+    return {
+      type: SET_PRODUCTS_DATA,
+      productsData,
     }
   }

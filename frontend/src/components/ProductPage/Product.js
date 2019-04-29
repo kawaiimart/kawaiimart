@@ -34,22 +34,34 @@ class Product extends Component
       };
     }
 
-    handleClick(id)
+    handleClick(name)
     {
-      this.props.addToCart(id);
+      this.props.addToCart(name);
+      console.log(name);
     }
 
     render()
     {
+      let imgLink = ""
+      if (this.props.product.img === undefined || this.props.product.img === "")
+      {
+        imgLink="Apple";
+      }
+      else {
+        {
+          imgLink = this.props.product.img;
+        }
+      }
+
       return (
           <div className="product"
           onMouseEnter={this.handleMouseHover}
           onMouseLeave={this.handleMouseHover}>
               <Thumbnail
-                  //src = {require(`../../images/ProductImages/${this.props.product.name}.png`)}
-                  src = {require(`../../images/ProductImages/Apple.png`)}
+                  //src = {require(`../../images/ProductImages/${this.props.product.image}.png`)}
+                  src = {require(`../../images/ProductImages/${imgLink}.png`)}
               />
-              <p className="product-name">{this.props.product.displayname}</p>
+              <p className="product-name">{this.props.product.name}</p>
               <p className="product-price">${this.props.product.price}</p>
               <p className="product-desc">{this.props.product.desc}</p>
 
@@ -58,7 +70,7 @@ class Product extends Component
                 <button
                 style={buttonStyle}
                 className="btn btn-primary"
-                onClick={() => {this.handleClick(this.props.product.id)}}>
+                onClick={() => {this.handleClick(this.props.product.name)}}>
                 Add Item</button>
               }
           </div>
@@ -68,7 +80,7 @@ class Product extends Component
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => {dispatch(addToCart(id))}
+    addToCart: (name) => {dispatch(addToCart(name))}
   }
 }
 

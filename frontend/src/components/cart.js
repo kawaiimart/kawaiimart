@@ -23,16 +23,16 @@ class Cart extends Component {
     super(props);
     }
 
-    handleRemove = (id) => {
-      this.props.removeItem(id);
+    handleRemove = (name) => {
+      this.props.removeItem(name);
     }
 
-    handleAddQuantity = (id) => {
-      this.props.addQuantity(id);
+    handleAddQuantity = (name) => {
+      this.props.addQuantity(name);
     }
 
-    handleSubtractQuantity = (id) => {
-      this.props.subtractQuantity(id);
+    handleSubtractQuantity = (name) => {
+      this.props.subtractQuantity(name);
     }
 
     toggleCart() {
@@ -45,17 +45,17 @@ class Cart extends Component {
         <h4>Shopping cart</h4>
           <div>
             {this.props.addedItems.map(item => (
-              <div className="cartItem" key={item.id}>
+              <div className="cartItem" key={item.name}>
                 <Thumbnail src = {require(`../images/ProductImages/${item.name}.png`)}/>
                 <span style={{paddingLeft: "20px"}}>
-                  <div style={{position: "absolute"}}>{item.displayname}</div>
-                  <a href="#a" style={removeStyle} onClick={() => {this.handleRemove(item.id)}}>Remove</a>
+                  <div style={{position: "absolute"}}>{item.name}</div>
+                  <a href="#a" style={removeStyle} onClick={() => {this.handleRemove(item.name)}}>Remove</a>
                 </span>
                 <span style={{width: "70px"}}>${item.price}</span>
                 <span>
-                  <button style={buttonStyle} onClick={() => {this.handleSubtractQuantity(item.id)}}>-</button>
+                  <button style={buttonStyle} onClick={() => {this.handleSubtractQuantity(item.name)}}>-</button>
                   <span>{item.quantity}</span>
-                  <button style={buttonStyle} onClick={() => {this.handleAddQuantity(item.id)}}>+</button>
+                  <button style={buttonStyle} onClick={() => {this.handleAddQuantity(item.name)}}>+</button>
                 </span>
               </div>
             ))}
@@ -83,9 +83,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeItem: (id) => {dispatch(removeItem(id))},
-    addQuantity: (id) => {dispatch(addQuantity(id))},
-    subtractQuantity: (id) => {dispatch(subtractQuantity(id))}
+    removeItem: (name) => {dispatch(removeItem(name))},
+    addQuantity: (name) => {dispatch(addQuantity(name))},
+    subtractQuantity: (name) => {dispatch(subtractQuantity(name))}
   }
 }
 

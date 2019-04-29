@@ -1,8 +1,7 @@
-import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM, EMPTY_CART } from '../actions/types'
-import productData from '../components/ProductPage/mockdata/SampleProductsGen'
+import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM, EMPTY_CART, SET_PRODUCTS_DATA } from '../actions/types'
 
 const initState = {
-  items: productData,
+  items: [],
   addedItems: [],
   total: 0
 }
@@ -13,8 +12,9 @@ const cartReducer = (state = initState, action) => {
 
     case ADD_TO_CART:
     {
-      let addedItem = state.items.find(item => item.id === action.id);
-      let existedItem = state.addedItems.find(item => item.id === action.id);
+      let addedItem = state.items.find(item => item.name === action.name);
+      console.log(addedItem);
+      let existedItem = state.addedItems.find(item => item.name === action.name);
 
       if (existedItem)
       {
@@ -39,7 +39,7 @@ const cartReducer = (state = initState, action) => {
 
     case ADD_QUANTITY:
     {
-      let addedItem = state.items.find( item => item.id === action.id);
+      let addedItem = state.items.find( item => item.name === action.name);
       addedItem.quantity += 1;
       return {
         ...state,
@@ -50,11 +50,10 @@ const cartReducer = (state = initState, action) => {
 
     case SUB_QUANTITY:
     {
-      let addedItem = state.items.find(item => item.id === action.id);
-
+      let addedItem = state.items.find(item => item.name === action.name);
       if (addedItem.quantity === 1)
       {
-        let newItems = state.addedItems.filter(item => item.id !== action.id);
+        let newItems = state.addedItems.filter(item => item.name !== action.name);
         return {
           ...state,
           addedItems: newItems,
@@ -75,8 +74,8 @@ const cartReducer = (state = initState, action) => {
 
     case REMOVE_ITEM:
     {
-      let itemToRemove = state.addedItems.find(item => item.id === action.id);
-      let newItems = state.addedItems.filter(item => item.id !== action.id);
+      let itemToRemove = state.addedItems.find(item => item.name === action.name);
+      let newItems = state.addedItems.filter(item => item.name !== action.name);
 
       return {
         ...state,
@@ -96,6 +95,15 @@ const cartReducer = (state = initState, action) => {
         }
 
         break;
+    }
+
+    case SET_PRODUCTS_DATA:
+    {
+      console.log(action.productsData)
+      return {
+        ...state,
+        items: action.productsData,
+      }
     }
 
     default:
