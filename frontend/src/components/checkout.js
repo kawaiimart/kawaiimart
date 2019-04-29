@@ -13,6 +13,9 @@ class Checkout extends Component {
       city: "",
       zipCode: "",
       state: "",
+      cardNumber: "",
+      nameOnCard: "",
+      securityCode: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -35,8 +38,10 @@ class Checkout extends Component {
 
   render() {
     return (
-      <div className="container" style={{ marginTop: '50px', width: '700px', marginBottom: '70px'}}>
-        <h2 style={{marginBottom: '40px'}}>Shipping Information</h2>
+      <div className="container" style={{ marginTop: '50px', width: '700px', marginBottom: '70px', overflow: "scroll"}}>
+      <div style={{float: "left"}}>
+        <h2 style={{marginBottom: '20px'}}>Shipping Information</h2>
+        <hr/>
         <form onSubmit={ this.handleSubmit }>
           <div className="form-group">
               <input
@@ -88,6 +93,42 @@ class Checkout extends Component {
               value={ this.state.state }
               />
           </div>
+        </form>
+        </div>
+        <div style={{float: "right"}}>
+        <h2 style={{marginBottom: '20px'}}>Payment Information</h2>
+        <hr/>
+        <form onSubmit={ this.handleSubmit }>
+          <div className="form-group">
+              <input
+              type="text"
+              placeholder="Credit card number"
+              name="cardNumber"
+              className='form-control form-control-lg'
+              onChange={ this.handleInputChange }
+              value={ this.state.cardNumber }
+              />
+          </div>
+          <div className="form-group">
+              <input
+              type="text"
+              placeholder="Security Code"
+              name="securityCode"
+              className='form-control form-control-lg'
+              onChange={ this.handleInputChange }
+              value={ this.state.securityCode }
+              />
+          </div>
+          <div className="form-group">
+              <input
+              type="text"
+              placeholder="Name on card"
+              name="nameOnCard"
+              className='form-control form-control-lg'
+              onChange={ this.handleInputChange }
+              value={ this.state.nameOnCard }
+              />
+          </div>
           <Link to="/confirmation">
               <button style={{background: "grey", border: "grey"}} type="submit" className="btn btn-primary"
                 onClick={this.handleClick}>
@@ -95,7 +136,9 @@ class Checkout extends Component {
               </button>
           </Link>
         </form>
+        </div>
       </div>
+
     );
   }
 }
