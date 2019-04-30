@@ -6,25 +6,19 @@ export default class Home extends Component {
         return (
             <div className = "home">
               <main class= "inner cover">
-                <div>
                   <div id="carouselExampleCaptions" className="carousel slide" data-ride="carousel">
                     <div className="carousel-inner">
                       <div className="carousel-item active">
                         <img src={require('../KMP0.svg')} className="d-block w-100"/>
                       </div>
                       <div className="carousel-item">
-                        <img src={require('../templateSlide.svg')} className="d-block w-100"/>
-                        <div className="carousel-caption d-none d-md-block">
-                          <h5>Second slide label</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
+                        <img src={require('../KMP1.svg')} className="d-block w-100"/>
                       </div>
                       <div className="carousel-item">
-                        <img src={require('../templateSlide.svg')} className="d-block w-100"/>
-                        <div className="carousel-caption d-none d-md-block">
-                          <h5>Third slide label</h5>
-                          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </div>
+                        <img src={require('../KMP2.svg')} className="d-block w-100"/>
+                      </div>
+                      <div className="carousel-item">
+                        <img src={require('../KMP3.svg')} className="d-block w-100"/>
                       </div>
                     </div>
                   <a className="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
@@ -36,7 +30,31 @@ export default class Home extends Component {
                     <span className="sr-only">Next</span>
                   </a>
                 </div>
-              </div>
+                <div className= "newProducts">
+                  <h1>Newly added Products</h1>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-sm">
+                        <div className="item">
+                          <img src = {require('../dkBread.png')} alt= "Dave's Killer Bread"/>
+                          <p>Try Dave's 100% Organic, 100% GMO free, 100% Killer Bread!</p>
+                        </div>
+                      </div>
+                      <div className="col-sm">
+                        <div className="item">
+                          <img src = {require('../plantainChips.png')} alt= "Pink Salt Plaintain Chips"/>
+                          <p>Barnana's Pink Salt Plantain Chips taste like nothing you've every tried before!</p>
+                        </div>
+                      </div>
+                      <div className="col-sm">
+                        <div className="item">
+                          <img src = {require('../acai.png')} alt= "Chocolate Covered Acai Berries"/>
+                          <p>You won't want to miss out on Brookside's Chocolate covered Acai Berries!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </main>
               <FooterBar />
             </div>

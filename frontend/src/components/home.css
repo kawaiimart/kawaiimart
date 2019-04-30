@@ -22,8 +22,8 @@
 }
 
 .carousel{
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 20%;
+  margin-right: 20%;
   margin-bottom: 100px;
 }
 
@@ -50,8 +50,42 @@
 }
 
 .comment {
-  background-color: #343a40;
+  background-color: rgba(52,58,64,0.8);
   border-radius: 20px;
   padding: 7px;
   vertical-align: middle !important;
+}
+
+.newProducts{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 100px;
+}
+
+.newProducts h1{
+  background-color: rgba(52,58,64,0.9);
+  padding: 1%;
+  text-align: center;
+}
+
+.item{
+  background-color: rgba(52,58,64,0.9);
+  padding: 1%;
+  margin: 1%;
+}
+
+.item img{
+  max-width: 90%;
+  margin-top: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item p{
+  max-width: 90%;
+  margin-top: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
