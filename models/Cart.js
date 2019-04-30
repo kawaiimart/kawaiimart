@@ -7,22 +7,25 @@ const Schema = mongoose.Schema;
 const CartSchema = new Schema({
 
   user: {
-    type: User,
+    type: String,
+    required: true,
   },
-
   items: [
     {
-    product: {
-        type: Product,
-    },
-    quantity: Number,
+      product: {
+          type: String,
+          required: true,
+        },
+
+      quantity: {
+        type: Number,
+        required: true,
+      }
     }
   ],
-
   name: {
     type: String,
   },
-
   address: {
     type: String,
   }

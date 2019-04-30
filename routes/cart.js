@@ -5,51 +5,59 @@ const passport = require('passport');
 
 const Cart = require('../models/Cart');
 const User = require('../models/User');
-
+const Product = require('../models/Product');
 
 // POST api/cart
 router.post('/', function(req, res) {
 
-    const user = req.body.user;
     const item = {
       product: req.body.product,
-      quantity: req.body.quantity
+      quantity: req.body.quantity,
     };
+    const uId = req.body.id;
+    let uCart = false;
 
-    Cart.findOne({
-      user: user,
-    }).then(cart => {
-      if(cart) {
-        let products = cart.items.map((item) => item.product + '');
-        if (products.includes(item.product)) {
-          Cart.findOneAndUpdate({
-            user: user,
-            items: {
-              $elemMatch: { product: item.product }
+    User.findOne({
+      id: uId,
+    }).then((user) => {
+      uCart = user.cart;
+      if(uCart) {
+        Cart.findOne({
+          user: uId,
+        }).then(cart => {
+          if(cart) {
+            let products = cart.items.map((item) => item.product + '');
+            if (products.includes(item.product)) {
+              Cart.findOneAndUpdate({
+                user: uId,
+                items: {
+                  $elemMatch: { product: item.product }
+                }
+              },
+                {
+                  $inc: { 'items.$.quantity': item.quantity }
+                })
+                .exec()
+                .then(() => res.end());
+            } else {
+              cart.items.push(item);
+              cart.save().then(() => res.end());
             }
-          },
-            {
-              $inc: { 'items.$.quantity': item.quantity }
-            })
-            .exec()
-            .then(() => res.end());
-        } else {
-          cart.items.push(item);
-          cart.save().then(() => res.end());
-        }
+          }
+        });
       } else {
+        user.cart = true;
         Cart.create({
-          user: user,
+          user: uId,
           items: [item]
         })
           .then(() => res.end());
-      }
-    });
+      }});
 });
 
 router.get('/', function(req, res) {
 
-  Cart.findOne({ user: req.user.id })
+  Cart.findOne({ user: req.body.id })
   .populate('items.product')
   .exec((err, cart) => {
     if (!cart) {
