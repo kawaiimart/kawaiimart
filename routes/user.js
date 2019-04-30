@@ -75,6 +75,7 @@ User.findOne({email})
             errors.email = 'User not found'
             return res.status(404).json(errors);
         }
+
         bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if(isMatch) {

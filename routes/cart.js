@@ -19,7 +19,7 @@ router.post('/', function(req, res) {
 
     User.findOne({
       id: uId,
-    }).then((user) => {
+    }).then(user => {
       uCart = user.cart;
       if(uCart) {
         Cart.findOne({
