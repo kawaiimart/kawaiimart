@@ -5,7 +5,7 @@ const Thumbnail = props => {
 
     return(
         <span className="thumb">
-            <img style={{width: "100px", height: "100px"}} src={props.src} />
+            <img style={{width: "100px", height: "100px"}} src={props.src}/>
         </span>
     )
 

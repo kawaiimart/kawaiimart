@@ -64,7 +64,7 @@ class Product extends Component
               <p className="product-name">{this.props.product.name}</p>
               <p className="product-price">${this.props.product.price}</p>
               <p className="product-desc">{this.props.product.desc}</p>
-
+              <p className="product-id">{this.props.product.id}</p>
               {
                 this.state.isHovering &&
                 <button

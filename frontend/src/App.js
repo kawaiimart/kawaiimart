@@ -19,6 +19,7 @@ import Protein from './components/ProductPage/ProteinPage';
 import Beverages from './components/ProductPage/BeveragesPage';
 import DessertsSweets from './components/ProductPage/DessertsSweetsPage';
 import AddProducts from './components/AddProducts/AddProducts';
+//import RemoveProduct from './components/AddProducts/RemoveProducts';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -53,6 +54,7 @@ class App extends Component {
                   <Route exact path="/beverages" component={ Beverages } />
                   <Route exact path="/dessertsSweets" component={ DessertsSweets } />
                   <Route exact path="/addproducts" component = { AddProducts } />
+                  
                 </div>
             </div>
           </Router>

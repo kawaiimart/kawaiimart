@@ -63,10 +63,11 @@ class AddProduct extends Component {
       }
 
       axios.post('/api/products', product)
-          .then(res => {
-            console.log(res);
-            console.log(res.data);
+        .then(res => {
+        console.log(res);
+        console.log(res.data);
       })
+      window.location.href = '/addproducts'
   }
 
   render() {
