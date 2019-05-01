@@ -78,21 +78,21 @@ class AddProduct extends Component {
 
                   <input type="text"
                       name="productName"
-                      placeholder="Name"
+                      placeholder="Name (ex. Apple)"
                       value={this.state.productName}
                       onChange={this.changeHandler}
                   />
 
                   <input type="number" step='.01'
                       name="price"
-                      placeholder="Price"
+                      placeholder="Price (ex. 1.99)"
                       value={this.state.price}
                       onChange={this.changeHandler}
                   />
 
                   <input type="text"
                       name="desc"
-                      placeholder="Description"
+                      placeholder="Description (ex. Juicy, red apple)"
                       value={this.state.desc}
                       onChange={this.changeHandler}
                   />
@@ -106,11 +106,11 @@ class AddProduct extends Component {
 
                   <input type="text"
                       name="img"
-                      placeholder="Image name"
+                      placeholder="Image (ex. Apple for 'Apple.png')"
                       value={this.state.img}
                       onChange={this.changeHandler}
                   />
-              
+
                     <input className="subButton" type="submit"/>
               </form>
           </div>
