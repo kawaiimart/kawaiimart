@@ -1,0 +1,16 @@
+.contact{
+  background-image: url("../background.png");
+  background-repeat: repeat;
+  height: 100%;
+}
+
+.contactText{
+  background-color: white;
+  color: rgb(52,58,64);
+  padding: 2%;
+}
+
+.person{
+  padding: 1.5%;
+  line-height: 80%;
+}
