@@ -59,6 +59,7 @@ class AddProduct extends Component {
 
       const product = {
           name: p.productName.value,
+          
           price: p.price.value,
           desc: p.desc.value,
           category: p.category.value,
@@ -78,7 +79,7 @@ class AddProduct extends Component {
       return (
           <div>
               <form className="prod-form" onSubmit={this.handleSubmit}>
-                  <label>  k a w a i i</label>
+                  <label>     k a w a i i</label>
 
                   <input type="text"
                       name="productName"

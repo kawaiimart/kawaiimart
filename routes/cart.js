@@ -5,69 +5,87 @@ const passport = require('passport');
 
 const Cart = require('../models/Cart');
 const User = require('../models/User');
-
-
-// GET api/cart
-router.get('/', function(req, res) {
-     Cart.find()
-    .then(cart => res.json(cart))
-});
+const Product = require('../models/Product');
 
 // POST api/cart
-router.post('/cart', function(req, res) {
+router.post('/', function(req, res) {
+
+    const item = {
+      product: req.body.product,
+      quantity: req.body.quantity,
+    };
+    const uId = req.body._id;
+    let uCart = false;
 
     User.findOne({
-      email: req.body.email
-    }).then(cart => {
-      if(cart) {
-        return res.status(400).json({
-            cart: 'Cart already exists for this user'
-        });
+      _id: uId,
+    }).then(user => {
+      uCart = user.cart;
+      if(!user) {
+          return res.status(404).json('User was not found');
       }
-      else {
-        // Construct an object to insert to DB
-        const newCart = new Cart({
-            user: req.body.user,
-            items: req.body.items,
-            address: req.body.address
-        });
-        // Adds newly created cart to database.
-        // Also responds with the product
-        newCart.save().then(cart => res.json(cart))
-      }
+      Cart.findOne({
+        user: uId,
+      }).then(cart => {
+        if(cart) {
+          let products = cart.items.map((item) => item.product + '');
+          if (products.includes(item.product)) {
+            Cart.findOneAndUpdate({
+              user: uId,
+              items: {
+                $elemMatch: { product: item.product }
+              }
+            },
+              {
+                $inc: { 'items.$.quantity': item.quantity }
+              })
+              .exec()
+              .then(() => res.end('Quantity increased'));
+          } else {
+            cart.items.push(item);
+            cart.save().then(() => res.end('Items pushed'));
+          }
+        } else {
+          user.cart = true;
+          Cart.create({
+            user: uId,
+            items: [item]
+          })
+            .then(() => res.end('New Cart Created'));
+        }
     });
+  });
+
 });
 
-// POST api/cart/item
-router.post('/cart/item', function(req, res) {
+router.get('/', function(req, res) {
 
-    Cart.findOne({
-      user: req.body.user
-    }).then(cart => {
-      if(cart) {
-        return res.status(400).json({
-            cart: 'Cart already exists for this user'
-        });
-      }
-      else {
-        // Construct an object to insert to DB
-        const newCart = new Cart({
-            user: req.body.user,
-            items: req.body.items,
-            address: req.body.address
-        });
-        // Adds newly created cart to database.
-        // Also responds with the product
-        newCart.save().then(cart => res.json(cart))
-      }
-    });
+  Cart.findOne({ user: req.body.id })
+  .populate('items.product')
+  .exec((err, cart) => {
+    if (!cart) {
+      return res.send(null);
+    }
+
+    res.send(cart);
+  });
 });
 
-// DELETE api/cart
-router.delete('/:id', function(req, res) {
-   Cart.findById(req.params.id)
-   .then(cart => cart.remove().then(() => res.json({success: true})))
-   .catch(err => res.status(404).json({success: false}))
-})
+router.put('/', function(req, res) {
 
-module.exports = router
+  Cart.findById(req.body.id)
+    .then((cart) => {
+      cart.items = cart.items.filter((item) => item._id != req.body.itemId);
+      cart.save(() => res.end());
+    });
+
+});
+
+router.delete('/', function(req, res) {
+
+  Cart.findByIdAndRemove(req.query.id)
+    .then(() => res.end())
+    .catch((err) => res.send(err));
+});
+
+module.exports = router;

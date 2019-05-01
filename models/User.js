@@ -21,6 +21,10 @@ const UserSchema = new Schema({
     },
     address: {
       type: String
+    },
+    cart: {
+      type: Boolean,
+      default: false
     }
 });
 

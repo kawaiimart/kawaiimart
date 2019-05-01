@@ -25,16 +25,17 @@ router.post('/register', function(req, res) {
             });
         }
         else {
-            const avatar = gravatar.url(req.body.email, {
+/*            const avatar = gravatar.url(req.body.email, {
                 s: '200',
                 r: 'pg',
                 d: 'mm'
-            });
+            });*/
             const newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
-                avatar
+                address: req.body.address,
+                cart: req.body.cart
             });
 
             bcrypt.genSalt(10, (err, salt) => {
@@ -74,13 +75,13 @@ User.findOne({email})
             errors.email = 'User not found'
             return res.status(404).json(errors);
         }
+
         bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if(isMatch) {
                         const payload = {
                             id: user.id,
-                            name: user.name,
-                            avatar: user.avatar
+                            name: user.name
                         }
                         jwt.sign(payload, 'secret', {
                             expiresIn: 3600
