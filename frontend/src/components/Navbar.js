@@ -38,7 +38,7 @@ class Navbar extends Component {
                   <Link class="navbar-brand" to="/"><img src = {require('../KawaiiMart.png')} className = "LogoHome" alt= "KawaiiMart"/></Link>
                   <div className="collapse navbar-collapse" id="navbarSupportedContent">
                       {isAuthenticated ? authLinks : guestLinks}
-                    </div>
+                  </div>
               </nav>
               <nav className="navbar navBottom navbar-expand-lg navbar-dark bg-dark">
                   <Link className="navbar-brand" to="/">Home</Link>
