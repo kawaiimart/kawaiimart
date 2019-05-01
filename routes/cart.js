@@ -30,20 +30,26 @@ router.post('/', function(req, res) {
         if(cart) {
           let products = cart.items.map((item) => item.product + '');
           if (products.includes(item.product)) {
-            Cart.findOneAndUpdate({
-              user: uId,
-              items: {
-                $elemMatch: { product: item.product }
-              }
-            },
-              {
-                $inc: { 'items.$.quantity': item.quantity }
-              })
-              .exec()
-              .then(() => res.end('Quantity increased'));
+            Product.findOne({
+              _id: req.body.productId,
+            }).then(found => {
+              found.stock -= item.quantity;
+                Cart.findOneAndUpdate({
+                  user: uId,
+                  items: {
+                    $elemMatch: { product: item.product }
+                  }
+                },
+                  {
+                    $inc: { 'items.$.quantity': item.quantity }
+                  })
+                  .exec()
+                  .then(() => {
+                    res.end('Quantity and stock updated');
+                  });
+            });
           } else {
-            cart.items.push(item);
-            cart.save().then(() => res.end('Items pushed'));
+            res.end('Product not found');
           }
         } else {
           user.cart = true;
@@ -55,12 +61,11 @@ router.post('/', function(req, res) {
         }
     });
   });
-
 });
 
 router.get('/', function(req, res) {
 
-  Cart.findOne({ user: req.body.id })
+  Cart.findOne({ user: req.body._id })
   .populate('items.product')
   .exec((err, cart) => {
     if (!cart) {
@@ -73,17 +78,21 @@ router.get('/', function(req, res) {
 
 router.put('/', function(req, res) {
 
-  Cart.findById(req.body.id)
-    .then((cart) => {
-      cart.items = cart.items.filter((item) => item._id != req.body.itemId);
-      cart.save(() => res.end());
+  Cart.findById(req.body._id)
+    .then(cart => {
+      if(cart) {
+        cart.items = cart.items.filter((item) => item._id != req.body.itemId);
+        cart.save(() => res.end());
+      } else {
+        res.end('PUT error');
+      }
     });
 
 });
 
 router.delete('/', function(req, res) {
 
-  Cart.findByIdAndRemove(req.query.id)
+  Cart.findByIdAndRemove(req.query._id)
     .then(() => res.end())
     .catch((err) => res.send(err));
 });
