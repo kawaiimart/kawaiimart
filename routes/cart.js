@@ -30,31 +30,26 @@ router.post('/', function(req, res) {
         if(cart) {
           let products = cart.items.map((item) => item.product + '');
           if (products.includes(item.product)) {
-            Cart.findOneAndUpdate({
-              user: uId,
-              items: {
-                $elemMatch: { product: item.product }
-              }
-            },
-              {
-                $inc: { 'items.$.quantity': item.quantity }
-              })
-              .exec()
-              .then(() => {
-                Product.findOne({
-                  _id: req.body.productId
-                }).then(product => {
-                  if(product) {
-                      product.stock -= item.quantity;
-                      res.end('Quantity updated');
-                  } else {
-                    res.end('Incorrect product');
+            Product.findOne({
+              _id: req.body.productId,
+            }).then(found => {
+              found.stock -= item.quantity;
+                Cart.findOneAndUpdate({
+                  user: uId,
+                  items: {
+                    $elemMatch: { product: item.product }
                   }
-              });
+                },
+                  {
+                    $inc: { 'items.$.quantity': item.quantity }
+                  })
+                  .exec()
+                  .then(() => {
+                    res.end('Quantity and stock updated');
+                  });
             });
           } else {
-            cart.items.push(item);
-            cart.save().then(() => res.end('Items pushed'));
+            res.end('Product not found');
           }
         } else {
           user.cart = true;
@@ -66,7 +61,6 @@ router.post('/', function(req, res) {
         }
     });
   });
-
 });
 
 router.get('/', function(req, res) {
