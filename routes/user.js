@@ -104,7 +104,7 @@ User.findOne({email})
 
 router.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
   return res.json({
-    id: req.user.id,
+    id: req.user._id,
     name: req.user.name,
     email: req.user.email
   });
