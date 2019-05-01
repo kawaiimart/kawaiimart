@@ -40,7 +40,18 @@ router.post('/', function(req, res) {
                 $inc: { 'items.$.quantity': item.quantity }
               })
               .exec()
-              .then(() => res.end('Quantity increased'));
+              .then(() => {
+                Product.findOne({
+                  _id: req.body.productId
+                }).then(product => {
+                  if(product) {
+                      product.stock -= item.quantity;
+                      res.end('Quantity updated');
+                  } else {
+                    res.end('Incorrect product');
+                  }
+              });
+            });
           } else {
             cart.items.push(item);
             cart.save().then(() => res.end('Items pushed'));
@@ -60,7 +71,7 @@ router.post('/', function(req, res) {
 
 router.get('/', function(req, res) {
 
-  Cart.findOne({ user: req.body.id })
+  Cart.findOne({ user: req.body._id })
   .populate('items.product')
   .exec((err, cart) => {
     if (!cart) {
@@ -73,17 +84,21 @@ router.get('/', function(req, res) {
 
 router.put('/', function(req, res) {
 
-  Cart.findById(req.body.id)
-    .then((cart) => {
-      cart.items = cart.items.filter((item) => item._id != req.body.itemId);
-      cart.save(() => res.end());
+  Cart.findById(req.body._id)
+    .then(cart => {
+      if(cart) {
+        cart.items = cart.items.filter((item) => item._id != req.body.itemId);
+        cart.save(() => res.end());
+      } else {
+        res.end('PUT error');
+      }
     });
 
 });
 
 router.delete('/', function(req, res) {
 
-  Cart.findByIdAndRemove(req.query.id)
+  Cart.findByIdAndRemove(req.query._id)
     .then(() => res.end())
     .catch((err) => res.send(err));
 });
