@@ -11,7 +11,7 @@ import Navbar from './components/Navbar';
 import Register from './components/register';
 import Login from './components/login';
 import Home from './components/home';
-
+import About from './components/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 if(localStorage.jwtToken) {
@@ -34,6 +34,7 @@ class App extends Component {
             <div>
               <Navbar />
                 <Route exact path="/" component={ Home } />
+                <Route exact path="/about" component={ About } />
                 <div className="container">
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
