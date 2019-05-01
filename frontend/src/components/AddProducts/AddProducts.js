@@ -29,6 +29,9 @@ class AddProduct extends Component {
             img: {
               value: ''
             },
+            stock: {
+                value: ''
+            }
 
           }
       }
@@ -60,6 +63,7 @@ class AddProduct extends Component {
           desc: p.desc.value,
           category: p.category.value,
           img: p.img.value,
+          stock: p.stock.value,
       }
 
       axios.post('/api/products', product)
@@ -108,6 +112,13 @@ class AddProduct extends Component {
                       name="img"
                       placeholder="Image name"
                       value={this.state.img}
+                      onChange={this.changeHandler}
+                  />
+
+                    <input type="number" step='1'
+                      name="stock"
+                      placeholder="Stock"
+                      value={this.state.stock}
                       onChange={this.changeHandler}
                   />
               
