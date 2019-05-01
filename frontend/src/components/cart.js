@@ -61,7 +61,7 @@ class Cart extends Component {
             ))}
           </div>
         <h5>Sub Total: ${this.props.total.toFixed(2)}</h5>
-        <h6>Discount: -$0.00</h6>
+        <h6>Discount: -${this.props.discount.toFixed(2)}</h6>
         <span>
           <h5 style={{display: "inline-block", paddingRight: "140px"}}>Total: ${this.props.total.toFixed(2)}</h5>
           <Link to="/checkout">
@@ -77,7 +77,8 @@ class Cart extends Component {
 const mapStateToProps = (state) => {
   return {
     addedItems: state.cart.addedItems,
-    total: state.cart.total
+    total: state.cart.total,
+    discount: state.cart.discount,
   }
 }
 
