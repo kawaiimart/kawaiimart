@@ -43,7 +43,8 @@ class Product extends Component
     render()
     {
       let imgLink = ""
-      if (this.props.product.img === undefined || this.props.product.img === "")
+      if (this.props.product.img === undefined || this.props.product.img === ""
+          || this.props.product.img === "Fruits/Vegetables")
       {
         imgLink="Apple";
       }
