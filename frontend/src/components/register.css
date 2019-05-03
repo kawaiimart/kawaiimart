@@ -4,3 +4,15 @@
   left: 0;
   width: 100%;
 }
+
+.registerPage{
+  background-image: url("../background.png");
+  background-repeat: repeat;
+  height: 80vh;
+}
+
+.forms{
+  background-color: white;
+  color: rgba(52,58,64);
+  padding: 2%;
+}

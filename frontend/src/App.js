@@ -49,18 +49,19 @@ class App extends Component {
                 <Route exact path="/about" component={ About } />
                 <Route exact path="/contact" component={ Contact } />
                 <Route exact path="/terms" component={ Terms } />
+                <Route exact path="/register" component={ Register } />
+                <Route exact path="/login" component={ Login } />
+                <Route exact path="/checkout" component={ Checkout } />
                 <div className="container">
-                  <Route exact path="/register" component={ Register } />
-                  <Route exact path="/login" component={ Login } />
                   <Route exact path="/products" component={ Products } />
-                  <Route exact path="/checkout" component={ Checkout } />
+
                   <Route exact path="/confirmation" component={ Confirmation } />
                   <Route exact path="/fruitsVegetables" component={ FruitsVegetables } />
                   <Route exact path="/protein" component={ Protein } />
                   <Route exact path="/beverages" component={ Beverages } />
                   <Route exact path="/dessertsSweets" component={ DessertsSweets } />
                   <Route exact path="/addproducts" component = { AddProducts } />
-                  
+
                 </div>
             </div>
           </Router>
