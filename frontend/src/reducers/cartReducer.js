@@ -11,12 +11,10 @@ const initState = {
 const cartReducer = (state = initState, action) => {
   switch(action.type)
   {
-
     case ADD_TO_CART:
     {
-      let addedItem = state.items.find(item => item.name === action.name);
-      console.log(addedItem);
-      let existedItem = state.addedItems.find(item => item.name === action.name);
+      let addedItem = state.items.find(item => item._id === action._id);
+      let existedItem = state.addedItems.find(item => item._id === action._id);
 
       let itemDiscount = 0;
 
@@ -64,7 +62,7 @@ const cartReducer = (state = initState, action) => {
 
     case ADD_QUANTITY:
     {
-      let addedItem = state.items.find( item => item.name === action.name);
+      let addedItem = state.items.find( item => item._id === action._id);
       addedItem.quantity += 1;
 
       let itemDiscount = 0;
@@ -97,7 +95,7 @@ const cartReducer = (state = initState, action) => {
 
     case SUB_QUANTITY:
     {
-      let addedItem = state.items.find(item => item.name === action.name);
+      let addedItem = state.items.find(item => item._id === action._id);
 
       let itemDiscount = 0;
 
@@ -120,7 +118,7 @@ const cartReducer = (state = initState, action) => {
 
       if (addedItem.quantity === 1)
       {
-        let newItems = state.addedItems.filter(item => item.name !== action.name);
+        let newItems = state.addedItems.filter(item => item._id !== action._id);
         return {
           ...state,
           addedItems: newItems,
@@ -145,8 +143,8 @@ const cartReducer = (state = initState, action) => {
 
     case REMOVE_ITEM:
     {
-      let itemToRemove = state.addedItems.find(item => item.name === action.name);
-      let newItems = state.addedItems.filter(item => item.name !== action.name);
+      let itemToRemove = state.addedItems.find(item => item._id === action._id);
+      let newItems = state.addedItems.filter(item => item._id !== action._id);
 
       let itemDiscount = 0;
 
@@ -193,7 +191,6 @@ const cartReducer = (state = initState, action) => {
 
     case SET_PRODUCTS_DATA:
     {
-      console.log(action.productsData)
       return {
         ...state,
         items: action.productsData,
@@ -206,6 +203,5 @@ const cartReducer = (state = initState, action) => {
 
   return state;
 }
-
 
 export default cartReducer;

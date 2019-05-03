@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Product from './Product';
 import './producttesting.scss';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import axios from 'axios';
+import { setProductsData } from '../../actions/cartActions';
 
 class DessertsSweetsPage extends Component {
   constructor(props) {
@@ -9,6 +11,21 @@ class DessertsSweetsPage extends Component {
     this.state = {
       productList: this.props.items,
     }
+  }
+
+  componentDidMount() {
+      axios.get('/api/products')
+      .then(
+          res => {
+              //this.state.productList = res.data
+
+              this.setState(() => {
+                  return {productList: res.data};
+              });
+
+              this.props.setProductsData(res.data);
+          },
+          res => {console.log(res)})
   }
 
   render() {
@@ -32,4 +49,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(DessertsSweetsPage)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setProductsData: (productsData) => {dispatch(setProductsData(productsData))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DessertsSweetsPage)
