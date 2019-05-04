@@ -38,7 +38,6 @@ class Product extends Component
     handleClick(_id)
     {
       this.props.addToCart(_id);
-      console.log(_id);
     }
 
     render()

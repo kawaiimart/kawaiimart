@@ -34,6 +34,8 @@ class ProductsPage extends Component {
     }
 
     render() {
+        this.state.productList.sort((a, b) => a.name.localeCompare(b.name))
+
         const products = this.state.productList.map(product => <Product product={product}/>)
 
         return (

@@ -29,6 +29,7 @@ class FruitsVegetablesPage extends Component {
   }
 
   render() {
+    this.state.productList.sort((a, b) => a.name.localeCompare(b.name))
     const newList = this.state.productList.filter(item => item.category === "Fruits/Vegetables");
 
     const products = newList.map(product => <Product product={product}/>);
