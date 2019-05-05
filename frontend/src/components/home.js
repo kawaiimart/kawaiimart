@@ -10,8 +10,6 @@ class Home extends Component {
       axios.get('/api/products')
       .then(
           res => {
-              console.log(res.data)
-              console.log("Got it!")
               //this.state.productList = res.data
 
               this.props.setProductsData(res.data);

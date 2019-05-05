@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Thumbnail from './Thumbnail'
 import { connect } from 'react-redux'
-import { addToCart } from '../../actions/cartActions'
+import { addToCart } from '../../actions/cartActions';
+
 
 const buttonStyle = {
   background: "grey",
@@ -34,16 +35,16 @@ class Product extends Component
       };
     }
 
-    handleClick(name)
+    handleClick(_id)
     {
-      this.props.addToCart(name);
-      console.log(name);
+      this.props.addToCart(_id);
     }
 
     render()
     {
       let imgLink = ""
-      if (this.props.product.img === undefined || this.props.product.img === "")
+      if (this.props.product.img === undefined || this.props.product.img === ""
+          || this.props.product.img === "Fruits/Vegetables")
       {
         imgLink="Apple";
       }
@@ -70,7 +71,7 @@ class Product extends Component
                 <button
                 style={buttonStyle}
                 className="btn btn-primary"
-                onClick={() => {this.handleClick(this.props.product.name)}}>
+                onClick={() => {this.handleClick(this.props.product._id)}}>
                 Add Item</button>
               }
           </div>
@@ -80,7 +81,7 @@ class Product extends Component
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (name) => {dispatch(addToCart(name))}
+    addToCart: (_id) => {dispatch(addToCart(_id))}
   }
 }
 

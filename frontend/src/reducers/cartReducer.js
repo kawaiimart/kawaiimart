@@ -3,25 +3,46 @@ import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM, EMPTY_CART, SET_P
 const initState = {
   items: [],
   addedItems: [],
-  total: 0
+  subtotal: 0,
+  discount: 0,
+  total: 0,
 }
 
 const cartReducer = (state = initState, action) => {
   switch(action.type)
   {
-
     case ADD_TO_CART:
     {
-      let addedItem = state.items.find(item => item.name === action.name);
-      console.log(addedItem);
-      let existedItem = state.addedItems.find(item => item.name === action.name);
+      let addedItem = state.items.find(item => item._id === action._id);
+      let existedItem = state.addedItems.find(item => item._id === action._id);
+
+      let itemDiscount = 0;
+
+      if (addedItem.name === "Ice Cream")
+      {
+        itemDiscount += addedItem.price * 0.15;
+      }
+      else if (addedItem.name === "Avocado")
+      {
+        itemDiscount += addedItem.price * 0.10;
+      }
+      else if (addedItem.name === "Bread")
+      {
+        itemDiscount += addedItem.price * 0.20;
+      }
+      else if (addedItem.name === "Pineapple")
+      {
+        itemDiscount += addedItem.price * 0.35;
+      }
 
       if (existedItem)
       {
         addedItem.quantity += 1;
         return {
           ...state,
-          total: state.total + addedItem.price
+          subtotal: state.subtotal + addedItem.price,
+          discount: state.discount + itemDiscount,
+          total: state.total + addedItem.price - itemDiscount,
         }
       }
       else
@@ -30,7 +51,9 @@ const cartReducer = (state = initState, action) => {
         return {
           ...state,
           addedItems: [...state.addedItems, addedItem],
-          total: state.total + addedItem.price
+          subtotal: state.subtotal + addedItem.price,
+          discount: state.discount + itemDiscount,
+          total: state.total + addedItem.price - itemDiscount,
         }
       }
 
@@ -39,25 +62,69 @@ const cartReducer = (state = initState, action) => {
 
     case ADD_QUANTITY:
     {
-      let addedItem = state.items.find( item => item.name === action.name);
+      let addedItem = state.items.find( item => item._id === action._id);
       addedItem.quantity += 1;
+
+      let itemDiscount = 0;
+
+      if (addedItem.name === "Ice Cream")
+      {
+        itemDiscount += addedItem.price * 0.15;
+      }
+      else if (addedItem.name === "Avocado")
+      {
+        itemDiscount += addedItem.price * 0.10;
+      }
+      else if (addedItem.name === "Bread")
+      {
+        itemDiscount += addedItem.price * 0.20;
+      }
+      else if (addedItem.name === "Pineapple")
+      {
+        itemDiscount += addedItem.price * 0.35;
+      }
+
       return {
         ...state,
-        total: state.total + addedItem.price
+        subtotal: state.subtotal + addedItem.price,
+        discount: state.discount + itemDiscount,
+        total: state.total + addedItem.price - itemDiscount,
       }
       break;
     }
 
     case SUB_QUANTITY:
     {
-      let addedItem = state.items.find(item => item.name === action.name);
+      let addedItem = state.items.find(item => item._id === action._id);
+
+      let itemDiscount = 0;
+
+      if (addedItem.name === "Ice Cream")
+      {
+        itemDiscount += addedItem.price * 0.15;
+      }
+      else if (addedItem.name === "Avocado")
+      {
+        itemDiscount += addedItem.price * 0.10;
+      }
+      else if (addedItem.name === "Bread")
+      {
+        itemDiscount += addedItem.price * 0.20;
+      }
+      else if (addedItem.name === "Pineapple")
+      {
+        itemDiscount += addedItem.price * 0.35;
+      }
+
       if (addedItem.quantity === 1)
       {
-        let newItems = state.addedItems.filter(item => item.name !== action.name);
+        let newItems = state.addedItems.filter(item => item._id !== action._id);
         return {
           ...state,
           addedItems: newItems,
-          total: state.total - addedItem.price
+          subtotal: state.subtotal - addedItem.price,
+          discount: state.discount - itemDiscount,
+          total: state.total - addedItem.price + itemDiscount
         }
       }
       else
@@ -65,7 +132,9 @@ const cartReducer = (state = initState, action) => {
         addedItem.quantity -= 1;
         return {
           ...state,
-          total: state.total - addedItem.price
+          subtotal: state.subtotal - addedItem.price,
+          discount: state.discount - itemDiscount,
+          total: state.total - addedItem.price + itemDiscount
         }
       }
 
@@ -74,13 +143,34 @@ const cartReducer = (state = initState, action) => {
 
     case REMOVE_ITEM:
     {
-      let itemToRemove = state.addedItems.find(item => item.name === action.name);
-      let newItems = state.addedItems.filter(item => item.name !== action.name);
+      let itemToRemove = state.addedItems.find(item => item._id === action._id);
+      let newItems = state.addedItems.filter(item => item._id !== action._id);
+
+      let itemDiscount = 0;
+
+      if (itemToRemove.name === "Ice Cream")
+      {
+        itemDiscount += itemToRemove.price * 0.15 * itemToRemove.quantity;
+      }
+      else if (itemToRemove.name === "Avocado")
+      {
+        itemDiscount += itemToRemove.price * 0.10 * itemToRemove.quantity;
+      }
+      else if (itemToRemove.name === "Bread")
+      {
+        itemDiscount += itemToRemove.price * 0.20 * itemToRemove.quantity;
+      }
+      else if (itemToRemove.name === "Pineapple")
+      {
+        itemDiscount += itemToRemove.price * 0.35 * itemToRemove.quantity;
+      }
 
       return {
         ...state,
         addedItems: newItems,
-        total: state.total - (itemToRemove.price * itemToRemove.quantity)
+        subtotal: state.subtotal - (itemToRemove.price * itemToRemove.quantity),
+        discount: state.discount - itemDiscount,
+        total: state.total - (itemToRemove.price * itemToRemove.quantity) + itemDiscount,
       }
 
       break;
@@ -91,6 +181,8 @@ const cartReducer = (state = initState, action) => {
         return {
           ...state,
           addedItems: [],
+          subtotal: 0,
+          discount: 0,
           total: 0
         }
 
@@ -99,7 +191,6 @@ const cartReducer = (state = initState, action) => {
 
     case SET_PRODUCTS_DATA:
     {
-      console.log(action.productsData)
       return {
         ...state,
         items: action.productsData,
@@ -112,6 +203,5 @@ const cartReducer = (state = initState, action) => {
 
   return state;
 }
-
 
 export default cartReducer;

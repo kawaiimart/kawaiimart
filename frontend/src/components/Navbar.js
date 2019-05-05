@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../actions/authentication';
 import { withRouter } from 'react-router-dom';
 import './Navbar.css';
-import './cart.css'
+import './cart.css';
 
 class Navbar extends Component {
 
@@ -22,7 +22,9 @@ class Navbar extends Component {
       this.toggleCart = this.toggleCart.bind(this);
       this.state = {
         dropdownOpen: false,
+        searchResult: '',
       };
+      this.handleSearch = this.handleSearch.bind(this);
     }
 
     toggle() {
@@ -33,8 +35,14 @@ class Navbar extends Component {
 
     toggleCart() {
       document.getElementById("cart").classList.toggle('active');
-
     }
+
+    handleSearch(e) {
+      e.preventDefault();
+      let searchResult = e.target[0].value;
+      this.props.history.push("/search/" + searchResult);
+    }
+
 
     render() {
         const {isAuthenticated, user} = this.props.auth;
@@ -97,7 +105,7 @@ class Navbar extends Component {
                       </li>
                     </ul>
                   </div>
-                  <form className="form-inline my-2 my-lg-0">
+                  <form className="form-inline my-2 my-lg-0" onSubmit={this.handleSearch}>
                     <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                   </form>
               </nav>
