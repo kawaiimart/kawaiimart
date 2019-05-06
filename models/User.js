@@ -28,7 +28,12 @@ const UserSchema = new Schema({
     },
     cartID: {
         type: String
-    }
+    },
+    orders: [{
+        // order ids
+        type: String
+    }],
+
 });
 
 const User = mongoose.model('users', UserSchema);

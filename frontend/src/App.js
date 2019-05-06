@@ -27,6 +27,8 @@ import Contact from './components/Contact';
 import Terms from './components/Terms';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import AccountInfo from './components/Account/AccountInfo'
+
 if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
   const decoded = jwt_decode(localStorage.jwtToken);
@@ -62,6 +64,7 @@ class App extends Component {
                   <Route exact path="/dessertsSweets" component={ DessertsSweets } />
                   <Route exact path="/addproducts" component = { AddProducts } />
                   <Route exact path="/search/:searchResult" component = { Search } />
+                  <Route exact path="/accountinfo" component = {AccountInfo} />
                 </div>
             </div>
           </Router>

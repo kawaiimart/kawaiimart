@@ -6,7 +6,7 @@ const OrderSchema = new Schema({
 
   cart: {
     type: String,
-    required: true,
+    //required: true,
   },
   items: [
     {

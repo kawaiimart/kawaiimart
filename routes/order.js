@@ -15,6 +15,7 @@ router.post('/', function(req, res) {
     product: req.body.product,
     quantity: req.body.quantity,
   };
+  
   var cart = req.body.cart;
   Cart.findOne({
     _id: cart
@@ -28,7 +29,6 @@ router.post('/', function(req, res) {
       return res.end('Could not find cart');
     }
   });
-
 
 });
 

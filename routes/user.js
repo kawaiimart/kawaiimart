@@ -105,11 +105,19 @@ User.findOne({email})
         });
 });
 
+// GET api/users
+router.get('/', function(req, res) {
+    User.find()
+    .then(user => res.json(user))
+});
+
 
 router.post('/orders', (res, req) => {
-    const newOrder = new Order({
-        //req.body.products
-    })
+    console.log(req)
+    
+    // const newOrder = new Order({
+        
+    // })
 })
 
 router.get('/orders', (res, req) => {
