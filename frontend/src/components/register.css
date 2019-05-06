@@ -1,14 +1,11 @@
 .footer{
-  position: fixed !important;
-  bottom: 0;
-  left: 0;
   width: 100%;
 }
 
 .registerPage{
   background-image: url("../background.png");
   background-repeat: repeat;
-  height: 80vh;
+  height: 100vh;
 }
 
 .forms{

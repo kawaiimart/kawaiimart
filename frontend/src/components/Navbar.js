@@ -100,9 +100,6 @@ class Navbar extends Component {
                       <li className="nav-item">
                         <Link class="nav-link" to="/about">About</Link>
                       </li>
-                      <li className="nav-item">
-                        <Link class="nav-link" to="/">Rewards</Link>
-                      </li>
                     </ul>
                   </div>
                   <form className="form-inline my-2 my-lg-0" onSubmit={this.handleSearch}>

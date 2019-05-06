@@ -44,6 +44,7 @@ class Cart extends Component {
   render() {
     return(
       <div className="cart" id="cart">
+        <button style={buttonStyle} onClick={this.toggleCart} className="btn btn-primary">Close</button>
         <h4>Shopping cart</h4>
           <div>
             {this.props.addedItems.map(item => (

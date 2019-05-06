@@ -14,9 +14,6 @@ export default class Navbar extends Component {
                       <li className="nav-item">
                         <Link className="nav-link" to="/terms">Terms and Conditions</Link>
                       </li>
-                      <li class="nav-item">
-                        <Link class="nav-link" to="/addproducts">Add product</Link>
-                      </li>
                     </ul>
                   </div>
               </nav>
