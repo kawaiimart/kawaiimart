@@ -15,8 +15,6 @@ const buttonStyle = {
   border: "grey"
 }
 
-
-
 class Register extends Component {
 
     constructor() {
@@ -43,6 +41,7 @@ class Register extends Component {
     }
 
     handleSubmit(e) {
+      e.preventDefault();
         /*
             Before a new user is entered into the database,
             a cart is created for their account. createCart
@@ -66,7 +65,6 @@ class Register extends Component {
                 cartID: data._id
             }
             this.props.registerUser(user, this.props.history);
-
 
         })
     }
