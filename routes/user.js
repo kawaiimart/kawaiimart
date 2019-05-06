@@ -8,7 +8,7 @@ const validateRegisterInput = require('../validation/register');
 const validateLoginInput = require('../validation/login');
 
 const User = require('../models/User');
-const Cart = require('..')
+const Order = require('../models/Order')
 router.post('/register', function(req, res) {
 
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -107,8 +107,9 @@ User.findOne({email})
 
 
 router.post('/orders', (res, req) => {
-    const newOrder = new newOrder()
-
+    const newOrder = new Order({
+        //req.body.products
+    })
 })
 
 router.get('/orders', (res, req) => {

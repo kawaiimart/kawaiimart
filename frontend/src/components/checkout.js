@@ -16,6 +16,7 @@ class Checkout extends Component {
       cardNumber: "",
       nameOnCard: "",
       securityCode: "",
+      products: []
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -29,6 +30,13 @@ class Checkout extends Component {
   }
 
   handleSubmit() {
+    
+    // right now: need an array of products
+
+
+    const order = {
+
+    }
 
   }
 

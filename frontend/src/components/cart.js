@@ -39,6 +39,12 @@ class Cart extends Component {
       document.getElementById("cart").classList.toggle('active');
     }
 
+    goToCheckout() {
+      toggleCart()
+      this.mapStateToProps()
+    }
+
+
   render() {
     return(
       <div className="cart" id="cart">
@@ -67,13 +73,15 @@ class Cart extends Component {
             Total: ${this.props.total < 0 ? Number(0).toFixed(2) : this.props.total.toFixed(2)}
           </h5>
           <Link to="/checkout">
-            <button style={buttonStyle} onClick={this.toggleCart} className="btn btn-primary">Checkout</button>
+            <button style={buttonStyle} onClick={
+              this.goToCheckout
+            }
+            className="btn btn-primary">Checkout</button>
           </Link>
         </span>
       </div>
     );
   }
-
 }
 
 const mapStateToProps = (state) => {
