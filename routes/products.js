@@ -1,12 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 
-
 const Product = require('../models/Product');
-
 
 // GET api/products
 router.get('/', function(req, res) {

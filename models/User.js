@@ -18,7 +18,22 @@ const UserSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    address: {
+      type: String
+    },
+    cart: {
+      type: Boolean,
+      default: false
+    },
+    cartID: {
+        type: String
+    },
+    orders: [{
+        // order ids
+        type: String
+    }],
+
 });
 
 const User = mongoose.model('users', UserSchema);

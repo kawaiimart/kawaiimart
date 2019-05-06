@@ -7,6 +7,11 @@ const path = require('path');
 
 const users = require('./routes/user');
 const products = require('./routes/products');
+const carts = require('./routes/cart');
+const simpleorder = require('./routes/simpleorder')
+// cart and carts are different 
+const cartstorage = require('./routes/cartstorage')
+
 
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
     () => {console.log('Database is connected') },
@@ -22,13 +27,17 @@ app.use(bodyParser.json());
 
 app.use('/api/users', users);
 app.use('/api/products', products);
-app.use(express.static(path.join(__dirname, "frontend", "build")));
+app.use('/api/carts', carts);
+app.use('/api/cartstorage', cartstorage)
+app.use('/api/simpleorder', simpleorder)
+app.use(express.static(path.join(__dirname, "frontend", "public")));
 
 
 app.use('/api/addproducts', products);
+app.use('/api/accountinfo', simpleorder);
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "frontend", "public", "index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
@@ -36,3 +45,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on PORT ${PORT}`);
 });
+
+
+

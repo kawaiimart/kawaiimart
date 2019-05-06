@@ -8,7 +8,7 @@ const validateRegisterInput = require('../validation/register');
 const validateLoginInput = require('../validation/login');
 
 const User = require('../models/User');
-
+const Order = require('../models/Order')
 router.post('/register', function(req, res) {
 
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -25,16 +25,19 @@ router.post('/register', function(req, res) {
             });
         }
         else {
-            const avatar = gravatar.url(req.body.email, {
+/*            const avatar = gravatar.url(req.body.email, {
                 s: '200',
                 r: 'pg',
                 d: 'mm'
-            });
+            });*/
+            console.log("In user.js " + req.body.cartID)
             const newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
-                avatar
+                address: req.body.address,
+                cart: req.body.cart,
+                cartID: req.body.cartID,
             });
 
             bcrypt.genSalt(10, (err, salt) => {
@@ -74,13 +77,13 @@ User.findOne({email})
             errors.email = 'User not found'
             return res.status(404).json(errors);
         }
+
         bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if(isMatch) {
                         const payload = {
                             id: user.id,
-                            name: user.name,
-                            avatar: user.avatar
+                            name: user.name
                         }
                         jwt.sign(payload, 'secret', {
                             expiresIn: 3600
@@ -102,9 +105,29 @@ User.findOne({email})
         });
 });
 
+// GET api/users
+router.get('/', function(req, res) {
+    User.find()
+    .then(user => res.json(user))
+});
+
+
+router.post('/orders', (res, req) => {
+    console.log(req)
+    
+    // const newOrder = new Order({
+        
+    // })
+})
+
+router.get('/orders', (res, req) => {
+
+
+})
+
 router.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
   return res.json({
-    id: req.user.id,
+    id: req.user._id,
     name: req.user.name,
     email: req.user.email
   });

@@ -29,6 +29,9 @@ class AddProduct extends Component {
             img: {
               value: ''
             },
+            stock: {
+                value: ''
+            }
 
           }
       }
@@ -56,10 +59,12 @@ class AddProduct extends Component {
 
       const product = {
           name: p.productName.value,
+          
           price: p.price.value,
           desc: p.desc.value,
           category: p.category.value,
           img: p.img.value,
+          stock: p.stock.value,
       }
 
       axios.post('/api/products', product)
@@ -74,7 +79,7 @@ class AddProduct extends Component {
       return (
           <div>
               <form className="prod-form" onSubmit={this.handleSubmit}>
-                  <label>  k a w a i i</label>
+                  <label>     k a w a i i</label>
 
                   <input type="text"
                       name="productName"
@@ -111,6 +116,13 @@ class AddProduct extends Component {
                       onChange={this.changeHandler}
                   />
 
+                    <input type="number" step='1'
+                      name="stock"
+                      placeholder="Stock"
+                      value={this.state.stock}
+                      onChange={this.changeHandler}
+                  />
+              
                     <input className="subButton" type="submit"/>
               </form>
           </div>

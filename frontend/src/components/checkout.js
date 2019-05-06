@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { emptyCart } from '../actions/cartActions'
+import axios from 'axios';
 
 
 class Checkout extends Component {
@@ -16,6 +17,8 @@ class Checkout extends Component {
       cardNumber: "",
       nameOnCard: "",
       securityCode: "",
+      addedItems: this.props.addedItems,
+      user: this.props.user,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -29,10 +32,19 @@ class Checkout extends Component {
   }
 
   handleSubmit() {
-
   }
 
   handleClick() {
+    const order = {
+      items: this.state.addedItems
+    }
+
+    console.log("submitting")
+    axios.post('/api/user/orders', order)
+    .then(res => {
+  
+      }
+    )
     this.props.emptyCart()
   }
 
@@ -143,10 +155,17 @@ class Checkout extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    addedItems: state.cart.addedItems,
+    user: state.auth.user,
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     emptyCart: () => {dispatch(emptyCart())},
   }
 }
 
-export default connect(null, mapDispatchToProps)(Checkout);
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

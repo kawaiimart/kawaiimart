@@ -5,6 +5,7 @@ import './cart.css';
 import { connect } from 'react-redux'
 import {removeItem, addQuantity, subtractQuantity } from '../actions/cartActions'
 
+
 const removeStyle = {
   position: "relative",
   top: "40px",
@@ -17,6 +18,7 @@ const buttonStyle = {
   color: "whitesmoke",
   border: "grey"
 }
+
 
 class Cart extends Component {
   constructor(props) {
@@ -67,13 +69,15 @@ class Cart extends Component {
             Total: ${this.props.total < 0 ? Number(0).toFixed(2) : this.props.total.toFixed(2)}
           </h5>
           <Link to="/checkout">
-            <button style={buttonStyle} onClick={this.toggleCart} className="btn btn-primary">Checkout</button>
+            <button style={buttonStyle} onClick={
+              this.toggleCart
+            }
+            className="btn btn-primary">Checkout</button>
           </Link>
         </span>
       </div>
     );
   }
-
 }
 
 const mapStateToProps = (state) => {

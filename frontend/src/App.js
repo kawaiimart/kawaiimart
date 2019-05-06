@@ -22,7 +22,12 @@ import AddProducts from './components/AddProducts/AddProducts';
 import Search from './components/Search'
 //import RemoveProduct from './components/AddProducts/RemoveProducts';
 
+import About from './components/About';
+import Contact from './components/Contact';
+import Terms from './components/Terms';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import AccountInfo from './components/Account/AccountInfo'
 
 if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -44,6 +49,9 @@ class App extends Component {
             <div>
               <Navbar />
                 <Route exact path="/" component={ Home } />
+                <Route exact path="/about" component={ About } />
+                <Route exact path="/contact" component={ Contact } />
+                <Route exact path="/terms" component={ Terms } />
                 <div className="container">
                   <Route exact path="/register" component={ Register } />
                   <Route exact path="/login" component={ Login } />
@@ -56,6 +64,7 @@ class App extends Component {
                   <Route exact path="/dessertsSweets" component={ DessertsSweets } />
                   <Route exact path="/addproducts" component = { AddProducts } />
                   <Route exact path="/search/:searchResult" component = { Search } />
+                  <Route exact path="/accountinfo" component = {AccountInfo} />
                 </div>
             </div>
           </Router>
