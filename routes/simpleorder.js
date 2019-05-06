@@ -22,12 +22,16 @@ router.post('/', function(req, res) {
 // GET api/simpleorder
 router.get('/', function(req, res){
     // find every order with same req user_id
-    console.log("simpleorder.get: user: " + req.body.user)
+    let id = req.params.user_id
+    
+    
     SimpleOrder.find({"user.user_id": req.body.user.user_id})
     
-    .then(cart => {
-        res.json(cart)
+    //SimpleOrder.find({"user.user_id": id})
+    .then(orders => {
+        res.json(orders)
     })
+    
 })
 
 module.exports = router;
