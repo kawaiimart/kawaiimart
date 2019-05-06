@@ -8,7 +8,7 @@ const validateRegisterInput = require('../validation/register');
 const validateLoginInput = require('../validation/login');
 
 const User = require('../models/User');
-
+const Cart = require('..')
 router.post('/register', function(req, res) {
 
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -30,12 +30,14 @@ router.post('/register', function(req, res) {
                 r: 'pg',
                 d: 'mm'
             });*/
+            console.log("In user.js " + req.body.cartID)
             const newUser = new User({
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
                 address: req.body.address,
-                cart: req.body.cart
+                cart: req.body.cart,
+                cartID: req.body.cartID,
             });
 
             bcrypt.genSalt(10, (err, salt) => {
@@ -102,6 +104,17 @@ User.findOne({email})
                   });
         });
 });
+
+
+router.post('/orders', (res, req) => {
+    const newOrder = new newOrder()
+
+})
+
+router.get('/orders', (res, req) => {
+
+
+})
 
 router.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
   return res.json({

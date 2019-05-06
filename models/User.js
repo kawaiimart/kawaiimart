@@ -25,6 +25,9 @@ const UserSchema = new Schema({
     cart: {
       type: Boolean,
       default: false
+    },
+    cartID: {
+        type: String
     }
 });
 

@@ -27,7 +27,9 @@
   "scripts": {
     "start": "concurrently \"nodemon app.js\" \"cd frontend && npm start\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "back": "nodemon app.js"
+    
   },
   "repository": {
     "type": "git",

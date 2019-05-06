@@ -5,12 +5,16 @@ import { withRouter } from 'react-router-dom';
 import { registerUser } from '../actions/authentication';
 import FooterBar from './FooterBar';
 import classnames from 'classnames';
+import {createCart} from '../actions/cartDB';
+import axios from 'axios';
 
 const buttonStyle = {
   background: "grey",
   color: "whitesmoke",
   border: "grey"
 }
+
+
 
 class Register extends Component {
 
@@ -38,14 +42,32 @@ class Register extends Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault();
-        const user = {
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password,
-            password_confirm: this.state.password_confirm
+        /*
+            Before a new user is entered into the database, 
+            a cart is created for their account. createCart
+            responds with the cartID, which is passed with
+            the user.
+        */
+
+        const userCart = {
+            items: [],
         }
-        this.props.registerUser(user, this.props.history);
+        
+        // Creates cart, and binds it to user
+        createCart(userCart).then(data => {
+            e.preventDefault();
+            const user = {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password,
+                password_confirm: this.state.password_confirm,
+                cart: true,
+                cartID: data._id
+            }
+            this.props.registerUser(user, this.props.history);
+            
+
+        })    
     }
 
     componentWillReceiveProps(nextProps) {

@@ -8,18 +8,18 @@ const CartSchema = new Schema({
 
   user: {
     type: String,
-    required: true,
+    //required: true,    user._id entered after user initially created
   },
   items: [
     {
       product: {
           type: String,
-          required: true,
+          //required: true,
         },
 
       quantity: {
         type: Number,
-        required: true,
+        //required: true,
       }
     }
   ],

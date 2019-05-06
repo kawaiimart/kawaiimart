@@ -9,14 +9,16 @@ const Product = require('../models/Product');
 
 // POST api/cart
 router.post('/', function(req, res) {
-
+    /*
     const item = {
       product: req.body.product,
       quantity: req.body.quantity,
     };
+    */
+
     const uId = req.body._id;
     let uCart = false;
-
+    
     User.findOne({
       _id: uId,
     }).then(user => {
@@ -27,6 +29,13 @@ router.post('/', function(req, res) {
       Cart.findOne({
         user: uId,
       }).then(cart => {
+        
+        // maybe?
+        const item = {
+          product: req.body.product,
+          quantity: req.body.quantity,
+        };
+        
         if(cart) {
           let products = cart.items.map((item) => item.product + '');
           if (products.includes(item.product)) {
@@ -62,6 +71,8 @@ router.post('/', function(req, res) {
     });
   });
 });
+
+
 
 router.get('/', function(req, res) {
 
