@@ -20,6 +20,7 @@ import Beverages from './components/ProductPage/BeveragesPage';
 import DessertsSweets from './components/ProductPage/DessertsSweetsPage';
 import AddProducts from './components/AddProducts/AddProducts';
 import Search from './components/Search'
+import History from './components/History'
 //import RemoveProduct from './components/AddProducts/RemoveProducts';
 
 import About from './components/About';
@@ -66,6 +67,7 @@ class App extends Component {
                   <Route exact path="/addproducts" component = { AddProducts } />
                   <Route exact path="/search/:searchResult" component = { Search } />
                   <Route exact path="/accountinfo" component = {AccountInfo} />
+                  <Route exact path="/history" component = { History } />
                 </div>
             </div>
           </Router>

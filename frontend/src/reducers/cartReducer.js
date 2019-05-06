@@ -1,4 +1,4 @@
-import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM, EMPTY_CART, SET_PRODUCTS_DATA } from '../actions/types'
+import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM, EMPTY_CART, SET_PRODUCTS_DATA, ADD_TO_HISTORY } from '../actions/types'
 
 const initState = {
   items: [],
@@ -6,6 +6,7 @@ const initState = {
   subtotal: 0,
   discount: 0,
   total: 0,
+  history: [],
 }
 
 const cartReducer = (state = initState, action) => {
@@ -194,6 +195,14 @@ const cartReducer = (state = initState, action) => {
       return {
         ...state,
         items: action.productsData,
+      }
+    }
+
+    case ADD_TO_HISTORY:
+    {
+      return {
+        ...state,
+        history: state.addedItems,
       }
     }
 

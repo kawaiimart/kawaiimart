@@ -1,4 +1,4 @@
-import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM, EMPTY_CART, SET_PRODUCTS_DATA} from './types'
+import { ADD_TO_CART, SUB_QUANTITY, ADD_QUANTITY, REMOVE_ITEM, EMPTY_CART, SET_PRODUCTS_DATA, ADD_TO_HISTORY} from './types'
 
 export const addToCart = (_id) => {
   return {
@@ -40,3 +40,9 @@ export const addToCart = (_id) => {
       productsData,
     }
   }
+
+  export const addToHistory = () => {
+  return {
+    type: ADD_TO_HISTORY,
+  }
+}

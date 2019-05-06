@@ -6,3 +6,4 @@ export const ADD_QUANTITY = 'ADD_QUANTITY';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const EMPTY_CART = 'EMPTY_CART';
 export const SET_PRODUCTS_DATA = 'SET_PRODUCTS_DATA';
+export const ADD_TO_HISTORY = 'ADD_TO_HISTORY';

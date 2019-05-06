@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { emptyCart } from '../actions/cartActions';
+import { emptyCart, addToHistory } from '../actions/cartActions';
 import './checkout.css';
 import FooterBar from './FooterBar';
 import axios from 'axios';
@@ -46,6 +46,7 @@ class Checkout extends Component {
 
       }
     )
+    this.props.addToHistory();
     this.props.emptyCart()
   }
 
@@ -172,6 +173,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     emptyCart: () => {dispatch(emptyCart())},
+    addToHistory: () => {dispatch(addToHistory())},
   }
 }
 

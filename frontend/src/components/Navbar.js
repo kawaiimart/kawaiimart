@@ -72,6 +72,19 @@ class Navbar extends Component {
                 <Cart/>
               </div>
       )
+
+      let historyString = "";
+      if (isAuthenticated)
+      {
+        historyString = "/history";
+      }
+      else {
+        {
+          historyString = "/login";
+        }
+      }
+
+
         return(
           <div>
               <nav className="navbar navbar-expand-lg navbar-light bg-white">
@@ -99,6 +112,9 @@ class Navbar extends Component {
                       </li>
                       <li className="nav-item">
                         <Link class="nav-link" to="/about">About</Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link class="nav-link" to={historyString}>History</Link>
                       </li>
                     </ul>
                   </div>
